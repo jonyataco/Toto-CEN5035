@@ -1,12 +1,14 @@
-# toto_real
+# Toto
 
-A new Flutter project.
+Toto application for CEN5035
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is the starting point for the flutter application.
+Code is written under the lib folder and each screen is inside a Tab folder.
+For whichever screen you want to work on, go to the directory of the screen and your code inside that file.
 
-A few resources to get you started if this is your first Flutter project:
+A few resources to get you started if this is your first Flutter project.
 
 - [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
