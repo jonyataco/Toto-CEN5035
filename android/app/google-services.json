@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "225962758914",
+    "firebase_url": "https://toto-902e5.firebaseio.com",
+    "project_id": "toto-902e5",
+    "storage_bucket": "toto-902e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:225962758914:android:2ff1dd2943b946385da81b",
+        "android_client_info": {
+          "package_name": "com.example.toto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "225962758914-as2cljsbgr6h45eao3gnbtgl0ngua2ms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU5a8P1tJ1EU2p6_mmmdSGmuNGZ4aK7UI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "225962758914-as2cljsbgr6h45eao3gnbtgl0ngua2ms.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
