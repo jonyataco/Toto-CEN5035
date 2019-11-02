@@ -1,11 +1,15 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:toto_real/Tabs/PawScreen/Widgets/dispenseFood.dart';
+import 'package:toto_real/Tabs/PawScreen/Widgets/dispenseWater.dart';
+import 'package:toto_real/Tabs/PawScreen/Widgets/foodLevel.dart';
+import 'package:toto_real/Tabs/PawScreen/Widgets/waterLevel.dart';
 import '../../Services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 import '../../Models/todo.dart';
-
-
-import 'dart:async';
+import 'Widgets/totoLevels.dart';
+import 'Widgets/scheduleWidget.dart';
 
 class PawScreen extends StatefulWidget {
   PawScreen({Key key}) : super(key : key);
@@ -15,357 +19,32 @@ class PawScreen extends StatefulWidget {
 }
 
 class _PawScreenState extends State<PawScreen> {
+  // Need to grab these levels from firebase
   int foodLevel;
   int waterLevel;
 
   @override
   Widget build(BuildContext context) {
-    return (
-      Center (
-        //child: Text('The current water level is 300'),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-
-
-            new Text('These are place holders.. data should be read from Firebase'),
-            
-                  Padding(
-                  padding: EdgeInsets.fromLTRB(30.0, 45.0, 30.0, 0.0),
-                  child: SizedBox(
-                    height: 40.0,
-                    /* child: new RaisedButton(
-                      elevation: 5.0,
-                      shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
-                      color: const Color(0xff00BCD4),
-                      child: new Text('Toto Feed now',
-                          style: new TextStyle(fontSize: 20.0, color: const Color(0xffffffff))),
-                      onPressed: ,
-                    ), */
-                  )),
-        
-
-            new Text('Feed Now Button '),
-            new Text('last fed ... '),
-            new Text(''),
-            new Text(''),
-            new Text('Give water Now Button '),
-            new Text('last dispensed water ...'),
-
-            Padding(
-              padding: EdgeInsets.all(15.0),
-              child: new LinearPercentIndicator(
-                width: MediaQuery.of(context).size.width - 50,
-                animation: true,
-                lineHeight: 40.0,
-                animationDuration: 2000,
-                percent: 0.9,
-                center: Text("Food Level"),
-                linearStrokeCap: LinearStrokeCap.roundAll,
-                progressColor:const Color(0xff795548),
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(15.0),
-              child: new LinearPercentIndicator(
-                width: MediaQuery.of(context).size.width - 50,
-                animation: true,
-                lineHeight: 40.0,
-                animationDuration: 2500,
-                percent: 0.4,
-                center: Text("Water level"),
-                linearStrokeCap: LinearStrokeCap.roundAll,
-                
-                progressColor: const Color(0xff4FC3F7),
-              ),
-            ),
-            new Text(''),
-            new Text(''),
-            new Text('schedule ? Next Scheduled meal : Create Schedule'),
-    
-          ],
-        ),
-      )
-            
-    
-    );
-  }
-
-  
-}
-
-
-
-
-/* class HomePage extends StatefulWidget {
-  HomePage({Key key, this.auth, this.userId, this.logoutCallback})
-      : super(key: key);
-
-  final BaseAuth auth;
-  final VoidCallback logoutCallback;
-  final String userId;
-
-  @override
-  State<StatefulWidget> createState() => new _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<Todo> _todoList;
-
-  final FirebaseDatabase _database = FirebaseDatabase.instance;
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
-  final _textEditingController = TextEditingController();
-  StreamSubscription<Event> _onTodoAddedSubscription;
-  StreamSubscription<Event> _onTodoChangedSubscription;
-
-  Query _todoQuery;
-
-  @override
-  void initState() {
-    super.initState();
-
-    //_checkEmailVerification();
-
-    _todoList = new List();
-    _todoQuery = _database
-        .reference()
-        .child("todo")
-        .orderByChild("userId")
-        .equalTo(widget.userId);
-    _onTodoAddedSubscription = _todoQuery.onChildAdded.listen(onEntryAdded);
-    _onTodoChangedSubscription =
-        _todoQuery.onChildChanged.listen(onEntryChanged);
-  }
-
-  @override
-  void dispose() {
-    _onTodoAddedSubscription.cancel();
-    _onTodoChangedSubscription.cancel();
-    super.dispose();
-  }
-
-  onEntryChanged(Event event) {
-    var oldEntry = _todoList.singleWhere((entry) {
-      return entry.key == event.snapshot.key;
-    });
-
-    setState(() {
-      _todoList[_todoList.indexOf(oldEntry)] =
-          Todo.fromSnapshot(event.snapshot);
-    });
-  }
-
-  onEntryAdded(Event event) {
-    setState(() {
-      _todoList.add(Todo.fromSnapshot(event.snapshot));
-    });
-  }
-
-  signOut() async {
-    try {
-      await widget.auth.signOut();
-      widget.logoutCallback();
-    } catch (e) {
-      print(e);
-    }
-  }
-
-  //add a new list and items
-  addNewTodo(String todoItem) {
-    if (todoItem.length > 0) {
-      Todo todo = new Todo(todoItem.toString(), widget.userId, false);
-      _database.reference().child("todo").push().set(todo.toJson());
-    }
-  }
-
-  updateTodo(Todo todo) {
-    //Toggle completed
-    todo.completed = !todo.completed;
-    if (todo != null) {
-      _database.reference().child("todo").child(todo.key).set(todo.toJson());
-    }
-  }
-
-  deleteTodo(String todoId, int index) {
-    _database.reference().child("todo").child(todoId).remove().then((_) {
-      print("Delete $todoId successful");
-      setState(() {
-        _todoList.removeAt(index);
-      });
-    });
-  }
-
-  showAddTodoDialog(BuildContext context) async {
-    _textEditingController.clear();
-    await showDialog<String>(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            content: new Row(
+    return Column(
+      children: <Widget>[
+        DispenseFood(),
+        DispenseWater(),
+        Expanded(
+          flex: 5,
+          child: Container(
+            child: Row(
               children: <Widget>[
-                new Expanded(
-                    child: new TextField(
-                  controller: _textEditingController,
-                  autofocus: true,
-                  decoration: new InputDecoration(
-                    labelText: 'Add new todo',
-                  ),
-                ))
+                WaterLevel(), 
+                FoodLevel(),
               ],
-            ),
-            actions: <Widget>[
-              new FlatButton(
-                  child: const Text('Cancel'),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  }),
-              new FlatButton(
-                  child: const Text('Save'),
-                  onPressed: () {
-                    addNewTodo(_textEditingController.text.toString());
-                    Navigator.pop(context);
-                  })
-            ],
-          );
-        });
-  }
-
-  Widget showTodoList() {
-    if (_todoList.length > 0) {
-      return ListView.builder(
-          shrinkWrap: true,
-          itemCount: _todoList.length,
-          itemBuilder: (BuildContext context, int index) {
-            String todoId = _todoList[index].key;
-            String subject = _todoList[index].subject;
-            bool completed = _todoList[index].completed;
-            String userId = _todoList[index].userId;
-            return Dismissible(
-              key: Key(todoId),
-              background: Container(color: Colors.red),
-              onDismissed: (direction) async {
-                deleteTodo(todoId, index);
-              },
-              
-              child: ListTile(
-                
-                title: Text(
-                  subject,
-                  style: TextStyle(fontSize: 20.0),
-                ),
-                trailing: IconButton(
-                    icon: (completed)
-                        ? Icon(
-                            Icons.pets,
-                            color: Colors.green,
-                            size: 40.0,
-                          )
-                        : Icon(Icons.pets, color: Colors.grey, size: 20.0),
-                    onPressed: () {
-                      updateTodo(_todoList[index]);
-                    }),
-              ),
-            );
-          });
-    } else {
-      return Center(
-          child: Text(
-        "Welcome Back!",
-        textAlign: TextAlign.center,
-        style: TextStyle(fontSize: 30.0),
-      ));
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Toto'),
-          actions: <Widget>[
-            new FlatButton(
-                child: new Text('Logout',
-                    style: new TextStyle(fontSize: 17.0, color: Colors.white)),
-                onPressed: signOut)
-          ],
-        ),
-        
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-        showTodoList(),
-/*         new RaisedButton(
-                child: new Text('Create Schedule',
-                    style: new TextStyle(fontSize: 17.0, color: Colors.white)),
-                    shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-                    color: Colors.cyan[600],
-                onPressed: () {
-              Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePageCalendar()), //SecondRoute
-            );
-            
-            
-          },
-                
-                ), */
-        new Image(
-          image: new AssetImage("assets/giphy-rick.gif",
-
+            )
           ),
-          height: 200.0,
-          //width: 80.0,
         ),
-/*         new RaisedButton(
-                child: new Text('Take Picture Now',
-                    style: new TextStyle(fontSize: 17.0, color: Colors.white)),
-                onPressed: signOut), */
-        new Icon(
-            Icons.loyalty,
-            color: Colors.cyan[600],
-            size: 50.0,
-          )
-
-
-        ],),
-        
-      
-
-      // Floating button to add more features ??
-          floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showAddTodoDialog(context);
-          },
-          tooltip: 'Increment',
-          child: Icon(Icons.add),          
-        ),
-        
-        );
-  }
-
-//not needed 
-
-/*     Widget buttonSchedule() {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('First Route'),
-      ),
-      body: Center(
-        child: RaisedButton(
-          child: Text('Open route'),
-          onPressed: () {
-              Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondRoute()),
-            );
-          },
-        ),
-      ),
+        Expanded(
+          flex: 1,
+          child: Schedule('test','testing'),
+        )
+      ],
     );
-  } */
-
- 
+  }
 }
- */

@@ -18,61 +18,55 @@ class TotoNotification extends StatelessWidget {
   // Widget that will render
   @override
   Widget build(BuildContext context) {
-    // Building a sized box that defines that size of each notification rectangle
-    return SizedBox(
+    // Building a container for the notification that defines height and width.
+    return Container(
       width: double.infinity,
       height: 70,
-      /* The child of the SizedBox will be a container so we can define a border
-       * around the entire notification (in this case we only define bottom border)
-       */ 
-      child: Container(
-        // Definining Border here
-        decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(width: 1.0, color: Colors.black)),
-        ),
-        // The child will be a row, and it's children will 
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              flex: 9,
-              child: Container(
-                // Creating padding for the container
-                padding: EdgeInsets.all(8),
-                /* 
-                decoration: BoxDecoration(
-                  border: Border.all()
-                ),
-                */
-                child: Column(
-                  // The alignment for items in the column
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      notificationTitle,
-                      style: TextStyle(
-                        fontSize: 24,
-                      )
-                    ),
-                    Text(
-                      notificationDetails,
-                      style: TextStyle(fontSize: 18, color: Colors.grey)
+      // Definining Border of the container
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(width: 1.0, color: Colors.black)),
+      ),
+      /* The child of the container will be a row. Inside of the row,
+       * there are two expandeds. Inside of the right expanded there is an icon.
+       * Inside of the left expanded, there are two rows and the top row
+       * is used for the notificationTitle and the bottom row is used for
+       * notification details.
+       */
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 9,
+            child: Container(
+              padding: EdgeInsets.all(8),
+              child: Column(
+                // The alignment for items in the column
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    notificationTitle,
+                    style: TextStyle(
+                      fontSize: 24,
                     )
-                  ],
-                ),
+                  ),
+                  Text(
+                    notificationDetails,
+                    style: TextStyle(fontSize: 18, color: Colors.grey)
+                  )
+                ],
               ),
             ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                child: Icon(
-                  Icons.opacity,
-                  size: 40,
-                )
-              ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              child: Icon(
+                Icons.opacity,
+                size: 40,
+              )
             ),
-          ],
-        ),
-      )
+          ),
+        ],
+      ),
     );
   }
 }

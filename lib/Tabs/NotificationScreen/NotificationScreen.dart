@@ -12,6 +12,8 @@ class NotificationScreen extends StatefulWidget {
 }
 
 /// Class that builds the NotificationScreenBased on the current state
+/// This screen is stateful because it should read notifications from firebase,
+/// we have to design how notifications look inside the databse.
 class _NotificationScreenState extends State<NotificationScreen> with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
