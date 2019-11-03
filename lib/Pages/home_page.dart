@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
+import 'package:provider/provider.dart';
+import '../Models/appModel.dart';
 import '../Tabs/PawScreen/PawScreen.dart';
 import '../Tabs/SettingsScreen/SettingsScreen.dart';
 import '../Tabs/VideoChatScreen/VideochatScreen.dart';
 import '../Tabs/NotificationScreen/NotificationScreen.dart';
 import '../Tabs/AccountScreen/AccountScreen.dart';
-
-
 import '../Services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -70,11 +69,6 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
     });
   }
 
-  // The build function will build the current screen based on the tab that is 
-  // selected
-  @override
-  Widget build(BuildContext context) {
-  
   //Temporary log out,,, the logout button should be in the account or settings page. 
   //when that pages gets build, it will contain a logout
   //temporary log out
@@ -86,55 +80,63 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
       print(e);
     }
   }
-    return Scaffold(
-      appBar: AppBar( 
-        title: new Text(_appBarOptions.elementAt(_currentIndex),
-          textAlign: TextAlign.center,
-          style: TextStyle(
-          fontSize: 30,
-          color: Colors.pink[800],
-          )
-        ),
+
+  // The build function will build the current screen based on the tab that is 
+  // selected
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      builder: (context) => TotoApp(),
+      child: Scaffold(
+        appBar: AppBar( 
+          title: new Text(_appBarOptions.elementAt(_currentIndex),
+            textAlign: TextAlign.center,
+            style: TextStyle(
+            fontSize: 30,
+            color: Colors.pink[800],
+            )
+          ),
 
   //Temporary log out,,, the logout button should be in the account or settings page. 
   //when that pages gets build, it will contain a logout
   //temporary log out
-        actions: <Widget>[
-            new FlatButton(
-        child: new Text('Logout',
-              style: new TextStyle(fontSize: 17.0, color: Colors.white)),
-              onPressed: signOut)
+          actions: <Widget>[
+              new FlatButton(
+          child: new Text('Logout',
+                style: new TextStyle(fontSize: 17.0, color: Colors.white)),
+                onPressed: signOut)
+            ],
+        
+        ),
+        body: _widgetOptions.elementAt(_currentIndex),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem> [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              title: Text('settings'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.video_call),
+              title: Text('chat'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.pets),
+              title: Text('status')
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.notifications),
+              title: Text('Notifications'),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.account_circle),
+              title: Text('Account')
+            )
           ],
-      
-      ),
-      body: _widgetOptions.elementAt(_currentIndex),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem> [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            title: Text('settings'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.video_call),
-            title: Text('chat'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.pets),
-            title: Text('status')
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications),
-            title: Text('Notifications'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle),
-            title: Text('Account')
-          )
-        ],
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
-        unselectedItemColor: Colors.grey,
+          currentIndex: _currentIndex,
+          selectedItemColor: Colors.amber[800],
+          onTap: _onItemTapped,
+          unselectedItemColor: Colors.grey,
+        ),
       ),
     );
   }
