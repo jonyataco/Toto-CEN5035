@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+/// Model that handles the data and logic for the homePage portion
 class TotoApp with ChangeNotifier {
   // Water level defined in pixels. Currently the hegiht of the container is 375
   double _waterLevel = 300;

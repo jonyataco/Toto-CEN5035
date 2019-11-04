@@ -17,7 +17,7 @@ class DispenseWater extends StatelessWidget {
           Expanded(
             flex: 8,
             child: Container(
-              padding: EdgeInsets.only(top: 18, left: 10),
+              padding: EdgeInsets.only(top: 10, left: 10),
               child: Column(
                 // The alignment for items in the column
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -30,7 +30,7 @@ class DispenseWater extends StatelessWidget {
                   ),
                   Text(
                     details,
-                    style: TextStyle(fontSize: 18, color: Colors.grey)
+                    style: TextStyle(fontSize: 16, color: Colors.grey)
                   )
                 ],
               ),

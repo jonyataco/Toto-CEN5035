@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:toto_real/Tabs/PawScreen/Widgets/dispenseFood.dart';
 import 'package:toto_real/Tabs/PawScreen/Widgets/dispenseWater.dart';
 import 'package:toto_real/Tabs/PawScreen/Widgets/foodLevel.dart';
 import 'package:toto_real/Tabs/PawScreen/Widgets/waterLevel.dart';
 import '../../Services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
-import '../../Models/todo.dart';
-import 'Widgets/totoLevels.dart';
 import 'Widgets/scheduleWidget.dart';
 
 class PawScreen extends StatefulWidget {
