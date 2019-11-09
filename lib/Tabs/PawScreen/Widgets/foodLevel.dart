@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:toto_real/Models/appModel.dart';
+import '../Models/levelModel.dart';
 import 'package:toto_real/Tabs/PawScreen/Widgets/totoLevels.dart';
 
 class FoodLevel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Consumer<TotoApp> (
+    return Consumer<LevelModel> (
       builder: (context, level, _) =>
       Expanded(
         flex: 1,

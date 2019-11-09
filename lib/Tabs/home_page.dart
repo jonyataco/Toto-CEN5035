@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../Models/appModel.dart';
 import '../Tabs/PawScreen/PawScreen.dart';
+import '../Tabs/PawScreen/Models/levelModel.dart';
 import '../Tabs/SettingsScreen/SettingsScreen.dart';
 import '../Tabs/VideoChatScreen/VideochatScreen.dart';
 import '../Tabs/NotificationScreen/NotificationScreen.dart';
@@ -39,7 +39,9 @@ final String userId;
   _StatefulTabControllerState createState() => _StatefulTabControllerState();
 }
 
-/// Widget that controls the logic on switching between tabs 
+/// Class that can be considered homebase for the application after logging in.
+/// Implements the building and logic of switching between the different tabs
+/// of the application.
 class _StatefulTabControllerState extends State<StatefulTabController> {
   // On initial load of the application the app will index automatically to 2, the PawScreen
   int _currentIndex = 2;
@@ -86,7 +88,7 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      builder: (context) => TotoApp(),
+      builder: (context) => LevelModel(),
       child: Scaffold(
         appBar: AppBar( 
           title: new Text(_appBarOptions.elementAt(_currentIndex),

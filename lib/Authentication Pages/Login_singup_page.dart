@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import '../Services/authentication.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
-import 'dart:ui' as ui;
 
 class LoginSignupPage extends StatefulWidget {
   LoginSignupPage({this.auth, this.loginCallback});
@@ -92,10 +91,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        appBar: new AppBar(
+    return Scaffold(
+        appBar: AppBar(
           centerTitle: true,
-          title: new Text('Toto',
+          title: Text('Toto',
           textAlign: TextAlign.center,
           style: TextStyle(
           fontSize: 40,
@@ -110,17 +109,16 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
           Colors.yellow,
         ],
       ) */
-
-
-  ),
+          ),
           )
         ),
         body: Stack(
           children: <Widget>[
             _showForm(),
-            _showCircularProgress(),
+            //_showCircularProgress(),
           ],
-        ));
+        )
+    );
   }
 
   Widget _showCircularProgress() {

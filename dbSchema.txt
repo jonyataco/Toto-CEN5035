@@ -1,0 +1,27 @@
+Ideas for DB schema:
+
+When a user creates an account, the following information will be needed upon 
+account creation:
+
+-Email
+-Password
+-First Name
+-Last Name
+-Pet Name
+
+Once an account is created, the following will be saved in the database
+-Email
+-First Name
+-Last Name
+-Pet Name
+
+we will NOT save the password. That will be handled under firebase authentication
+
+After a user's account is created, we will add the following properties to each user
+
+-Photo (Defaults to null, should be uploaded after the fact)
+-Water level (int) (Defaults for now to 100)
+-Food level (int) (Defaults for now to 100)
+-isWaterDispensing (bool) (Defaults to 0)
+-isFoodDispending (bool) (Defaults to 0)
+-isCameraActive (bool) (Defaults to 0)

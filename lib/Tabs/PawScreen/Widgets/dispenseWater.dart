@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:toto_real/Models/appModel.dart';
+import '../Models/levelModel.dart';
 
 class DispenseWater extends StatelessWidget {
   final String title = "Dispense Water";
@@ -8,7 +8,7 @@ class DispenseWater extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final level = Provider.of<TotoApp>(context);
+    final level = Provider.of<LevelModel>(context);
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height * .10,

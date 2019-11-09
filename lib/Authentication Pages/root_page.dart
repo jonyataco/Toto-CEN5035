@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 import './Login_singup_page.dart';
 import '../Services/authentication.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'home_page.dart';
+import '../Tabs/home_page.dart';
 
-
+/// enum type that determines the current authentication status
 enum AuthStatus {
   NOT_DETERMINED,
   NOT_LOGGED_IN,
   LOGGED_IN,
 }
 
+/// The RootPage that takes in the firebase authentication widget
+/// as a constructor. This class is what determines the current log in status of
+/// the user. Based on the login status, it will then display either the main 
+/// home page or prompt the user to login
 class RootPage extends StatefulWidget {
   RootPage({this.auth});
 
@@ -31,9 +35,14 @@ class _RootPageState extends State<RootPage> {
       setState(() {
         if (user != null) {
           _userId = user?.uid;
+          print('The current user logged in is $_userId');
+          authStatus = AuthStatus.LOGGED_IN;
         }
+        else {
         authStatus =
             user?.uid == null ? AuthStatus.NOT_LOGGED_IN : AuthStatus.LOGGED_IN;
+            print(AuthStatus);
+        }
       });
     });
   }
@@ -72,14 +81,14 @@ class _RootPageState extends State<RootPage> {
         return buildWaitingScreen();
         break;
       case AuthStatus.NOT_LOGGED_IN:
-        return new LoginSignupPage(
+        return LoginSignupPage(
           auth: widget.auth,
           loginCallback: loginCallback,
         );
         break;
       case AuthStatus.LOGGED_IN:
         if (_userId.length > 0 && _userId != null) {
-          return new StatefulTabController(
+          return StatefulTabController(
             userId: _userId,
             auth: widget.auth,
             logoutCallback: logoutCallback,
