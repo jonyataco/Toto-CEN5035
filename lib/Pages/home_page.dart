@@ -8,6 +8,7 @@ import '../Tabs/NotificationScreen/NotificationScreen.dart';
 import '../Tabs/AccountScreen/AccountScreen.dart';
 import '../Services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
+import '../Tabs/VideoChatScreen/VideochatScreen.dart';
 
 
 void main() => runApp(MyApp());
@@ -47,7 +48,8 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
   // List of widgetOptions
   List<Widget> _widgetOptions = <Widget>[
     Text('Index 0: Settings'),
-    Text('Index 1: Video Chat'),
+    //Text('Index 1: Video Chat'),
+    VideoScreen(),
     PawScreen(),
     NotificationScreen(),
     Text('Index 4: Account'),
