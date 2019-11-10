@@ -1,11 +1,18 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 abstract class BaseAuth {
   Future<String> signIn(String email, String password);
 
-  Future<String> signUp(String email, String password);
+  Future<String> signUp(
+    String email, 
+    String password,
+    String firstName,
+    String lastName,
+    String petName
+  );
 
   Future<FirebaseUser> getCurrentUser();
 
@@ -20,15 +27,23 @@ abstract class BaseAuth {
 /// Class that implement firebase authentication
 class Auth implements BaseAuth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final DatabaseReference _dbref = FirebaseDatabase.instance.reference();
 
   //Google sign in autehenticaiton
   final GoogleSignIn googleSignIn = GoogleSignIn();
 
   Future<String> signIn(String email, String password) async {
-    AuthResult result = await _firebaseAuth.signInWithEmailAndPassword(
+    try {
+      AuthResult result = await _firebaseAuth.signInWithEmailAndPassword(
         email: email, password: password);
-    FirebaseUser user = result.user;
-    return user.uid;
+
+      FirebaseUser user = result.user;
+      return user.uid;
+    } catch(e) {
+      print('ERROR IN FIREBASE SIGN IN: $e');
+      // returns empty string on any errors
+      return "";
+    }
   }
 
   //Google -----
@@ -60,15 +75,29 @@ class Auth implements BaseAuth {
 
   print("User Sign Out");
   }
-//End of Google ---
+  //End of Google ---
 
 
-
-  Future<String> signUp(String email, String password) async {
-    AuthResult result = await _firebaseAuth.createUserWithEmailAndPassword(
-        email: email, password: password);
-    FirebaseUser user = result.user;
-    return user.uid;
+  // In the singup, we need to catch various errors
+  Future<String> signUp(String email, String password, String firstName, String lastName, String petName) async {
+    try {
+      AuthResult result = await _firebaseAuth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      FirebaseUser user = result.user;
+      // If there is no failure, then create an entry in the database with the following fields
+      _dbref.child(user.uid).set({
+        'email': email,
+        'firstName': firstName,
+        'lastName': lastName,
+        'petName': petName
+      });
+      return user.uid;
+    }
+    // Catch any errors that can come from createUserWithEmailAndPassword
+    catch (e) {
+      print(e);
+      return "";
+    }
   }
 
   Future<FirebaseUser> getCurrentUser() async {
