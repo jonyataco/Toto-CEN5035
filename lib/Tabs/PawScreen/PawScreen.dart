@@ -23,6 +23,7 @@ class _PawScreenState extends State<PawScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      //MainAxisAlignment.center,
       children: <Widget>[
         DispenseFood(),
         DispenseWater(),

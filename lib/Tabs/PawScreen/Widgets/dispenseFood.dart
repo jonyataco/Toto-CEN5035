@@ -30,7 +30,7 @@ class DispenseFood extends StatelessWidget {
                   ),
                   Text(
                     details,
-                    style: TextStyle(fontSize: 16, color: Colors.grey)
+                    style: TextStyle(fontSize: 15, color: Colors.grey)
                   )
                 ],
               ),
