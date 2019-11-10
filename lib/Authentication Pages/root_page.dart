@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import './Login_singup_page.dart';
+import './loginPage.dart';
 import '../Services/authentication.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../Tabs/home_page.dart';
 
-/// enum type that determines the current authentication status
+/// Type that determines the current authentication status
 enum AuthStatus {
   NOT_DETERMINED,
   NOT_LOGGED_IN,
@@ -14,7 +14,7 @@ enum AuthStatus {
 /// The RootPage that takes in the firebase authentication widget
 /// as a constructor. This class is what determines the current log in status of
 /// the user. Based on the login status, it will then display either the main 
-/// home page or prompt the user to login
+/// home page or prompt the user to login.
 class RootPage extends StatefulWidget {
   RootPage({this.auth});
 
@@ -29,19 +29,21 @@ class _RootPageState extends State<RootPage> {
   String _userId = "";
 
   @override
+  // Initializes the state
   void initState() {
     super.initState();
+    // Gets the user from the authentication widget
     widget.auth.getCurrentUser().then((user) {
       setState(() {
+        /* If a user is returned from getCurrentUser, then set authStatus as 
+         * LOGGED_IN
+         */
         if (user != null) {
           _userId = user?.uid;
-          print('The current user logged in is $_userId');
           authStatus = AuthStatus.LOGGED_IN;
         }
         else {
-        authStatus =
-            user?.uid == null ? AuthStatus.NOT_LOGGED_IN : AuthStatus.LOGGED_IN;
-            print(AuthStatus);
+          authStatus = AuthStatus.NOT_LOGGED_IN;
         }
       });
     });
@@ -81,7 +83,7 @@ class _RootPageState extends State<RootPage> {
         return buildWaitingScreen();
         break;
       case AuthStatus.NOT_LOGGED_IN:
-        return LoginSignupPage(
+        return LoginPage(
           auth: widget.auth,
           loginCallback: loginCallback,
         );

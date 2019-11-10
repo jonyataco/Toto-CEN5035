@@ -6,6 +6,7 @@ import '../Tabs/SettingsScreen/SettingsScreen.dart';
 import '../Tabs/VideoChatScreen/VideochatScreen.dart';
 import '../Tabs/NotificationScreen/NotificationScreen.dart';
 import '../Tabs/AccountScreen/AccountScreen.dart';
+import '../Tabs/AccountScreen/Models/accountModel.dart';
 import '../Services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -52,7 +53,7 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
     Text('Index 1: Video Chat'),
     PawScreen(),
     NotificationScreen(),
-    Text('Index 4: Account'),
+    AccountScreen(),
   ];
 
   // List of appBar Titles that will change depending on the tab selected
@@ -87,8 +88,15 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
   // selected
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      builder: (context) => LevelModel(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          builder: (context) => LevelModel()
+        ),
+        ChangeNotifierProvider(
+          builder: (conext) => AccountModel()
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar( 
           title: new Text(_appBarOptions.elementAt(_currentIndex),

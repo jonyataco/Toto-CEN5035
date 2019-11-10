@@ -4,22 +4,9 @@ import 'package:toto_real/Tabs/PawScreen/Widgets/dispenseFood.dart';
 import 'package:toto_real/Tabs/PawScreen/Widgets/dispenseWater.dart';
 import 'package:toto_real/Tabs/PawScreen/Widgets/foodLevel.dart';
 import 'package:toto_real/Tabs/PawScreen/Widgets/waterLevel.dart';
-import '../../Services/authentication.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'Widgets/scheduleWidget.dart';
 
-class PawScreen extends StatefulWidget {
-  PawScreen({Key key}) : super(key : key);
-
-  @override
-  _PawScreenState createState() => _PawScreenState();
-}
-
-class _PawScreenState extends State<PawScreen> {
-  // Need to grab these levels from firebase
-  int foodLevel;
-  int waterLevel;
-
+class PawScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
