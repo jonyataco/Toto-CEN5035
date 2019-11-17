@@ -1,18 +1,7 @@
 import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import './Services/authentication.dart';
-import './Authentication Pages/root_page.dart';
-import 'package:provider/provider.dart';
-import './Tabs/SettingsScreen/SettingsScreen.dart';
-import 'Tabs/home_page.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'ui/global/theme/bloc/bloc.dart';
-
-=======
 import './Authentication Pages/Services/authentication.dart';
 import './Authentication Pages/Views/root_page.dart';
->>>>>>> master
 
 /// Runs the application
 void main() {

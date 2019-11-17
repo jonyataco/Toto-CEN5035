@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:toto_real/Services/authentication.dart';
+import 'package:toto_real/Authentication Pages/Services/authentication.dart';
 import '../../../Authentication Pages/Widgets/TotoAppBar.dart';
 import '../SettingsScreen.dart';
 

@@ -11,7 +11,7 @@ import 'Widgets/ReportProblemWidget.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 import 'Widgets/SendFeedbackWidget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:toto_real/Services/authentication.dart';
+import 'package:toto_real/Authentication Pages/Services/authentication.dart';
 
 
 
