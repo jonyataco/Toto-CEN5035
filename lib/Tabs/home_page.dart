@@ -50,7 +50,7 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
 
   // List of widgetOptions
   List<Widget> _widgetOptions = <Widget>[
-    Text('Index 0: Settings'),
+    SettingsScreen(),
     //Text('Index 1: Video Chat'),
     VideoScreen(),
     PawScreen(),
@@ -115,7 +115,7 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
           actions: <Widget>[
               new FlatButton(
           child: new Text('Logout',
-                style: new TextStyle(fontSize: 17.0, color: Colors.white)),
+                style: new TextStyle(fontSize: 17.0, color: Colors.blueGrey)),
                 onPressed: signOut)
             ],
         
@@ -147,7 +147,7 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
           currentIndex: _currentIndex,
           selectedItemColor: Colors.amber[800],
           onTap: _onItemTapped,
-          unselectedItemColor: Colors.grey,
+          unselectedItemColor: Colors.blueGrey,
         ),
       ),
     );
