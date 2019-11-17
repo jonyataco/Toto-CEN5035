@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import '../Models/new_user.dart';
 
 abstract class BaseAuth {
   Future<String> signIn(String email, String password);
