@@ -3,6 +3,7 @@ import 'package:dynamic_theme/dynamic_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:package_info/package_info.dart';
+import 'package:toto_real/Services/authentication.dart';
 import 'package:toto_real/ui/global/theme/app_themes.dart';
 import 'package:toto_real/ui/global/theme/bloc/bloc.dart';
 import 'Widgets/DarkModeWidget.dart';
@@ -11,8 +12,6 @@ import 'Widgets/ReportProblemWidget.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 import 'Widgets/SendFeedbackWidget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:toto_real/Services/authentication.dart';
-
 
 
 class SettingsScreen extends StatefulWidget {

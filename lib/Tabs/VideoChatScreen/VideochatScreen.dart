@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 import 'package:flutter_vlc_player/vlc_player.dart';
 import 'package:flutter_vlc_player/vlc_player_controller.dart';
 
@@ -53,7 +52,9 @@ class _MyHomePageState extends State<MyHomePage2> {
       if (_streamUrl != null) {
         _streamUrl = null;
       } else {
-        _streamUrl = 'http://10.12.84.119:8081';
+
+        _streamUrl = 'https://10.12.84.119:8081';
+
       }
     });
   }
