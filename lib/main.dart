@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import './Services/authentication.dart';
-import './Authentication Pages/root_page.dart';
+import './Authentication Pages/Services/authentication.dart';
+import './Authentication Pages/Views/root_page.dart';
 
+/// Runs the application
 void main() {
   runApp(MyApp());
 }

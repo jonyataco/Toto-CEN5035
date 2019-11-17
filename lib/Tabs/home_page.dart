@@ -6,8 +6,8 @@ import '../Tabs/SettingsScreen/SettingsScreen.dart';
 import '../Tabs/VideoChatScreen/VideochatScreen.dart';
 import '../Tabs/NotificationScreen/NotificationScreen.dart';
 import '../Tabs/AccountScreen/AccountScreen.dart';
-import '../Tabs/AccountScreen/Models/accountModel.dart';
-import '../Services/authentication.dart';
+import '../Tabs/AccountScreen/Models/account_model.dart';
+import '../Authentication Pages/Services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 import '../Tabs/VideoChatScreen/VideochatScreen.dart';
 
@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
 
 /// StatefulTabController that builds _StatefulTabControllerState
 class StatefulTabController extends StatefulWidget {
+
  // StatefulTabController({Key key}) : super(key: key);
 StatefulTabController({Key key, this.auth, this.userId, this.logoutCallback})
       : super(key: key);
@@ -66,7 +67,7 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
     'Notifications',
     'Account'
   ];
-  
+
   // Function that will change the current index
   void _onItemTapped(int index) {
     setState(() {
@@ -96,7 +97,7 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
           builder: (context) => LevelModel()
         ),
         ChangeNotifierProvider(
-          builder: (conext) => AccountModel()
+          builder: (conext) => AccountModel(widget.userId)
         ),
       ],
       child: Scaffold(

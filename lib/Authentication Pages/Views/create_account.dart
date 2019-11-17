@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:toto_real/Services/authentication.dart';
-import './Widgets/TotoAppBar.dart';
-import './Widgets/showLogo.dart';
+import 'package:toto_real/Authentication Pages/Services/authentication.dart';
+import '../Widgets/TotoAppBar.dart';
+import '../Widgets/showLogo.dart';
 
 class SignupPage extends StatefulWidget {
   SignupPage({this.auth, this.loginCallback});
@@ -29,7 +29,6 @@ class _SignupPageState extends State<SignupPage> {
   void initState() {
     _errorMessage = "";
     _successMessage = "";
-    print(_successMessage);
     _isLoading = false;
     super.initState();
   }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import './loginPage.dart';
 import '../Services/authentication.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import '../Tabs/home_page.dart';
+import '../../Tabs/home_page.dart';
 
 /// Type that determines the current authentication status
 enum AuthStatus {
