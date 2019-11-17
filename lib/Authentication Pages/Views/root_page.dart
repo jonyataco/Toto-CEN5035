@@ -16,12 +16,13 @@ enum AuthStatus {
 /// home page or prompt the user to login.
 class RootPage extends StatefulWidget {
   RootPage({this.auth});
-
+  
   final BaseAuth auth;
 
   @override
   State<StatefulWidget> createState() => new _RootPageState();
 }
+
 
 class _RootPageState extends State<RootPage> {
   AuthStatus authStatus = AuthStatus.NOT_DETERMINED;
