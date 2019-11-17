@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
       ),
       themedWidgetBuilder: (context, theme) {
         return new MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'Toto',
           theme: theme,
           home: new RootPage(auth: Auth()),
