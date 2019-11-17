@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../Services/authentication.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import './Widgets/TotoAppBar.dart';
+import '../Widgets/TotoAppBar.dart';
 import './create_account.dart';
 import 'package:flutter_auth_buttons/flutter_auth_buttons.dart';
 
@@ -245,7 +244,10 @@ class _LoginPageState extends State<LoginPage> {
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SignupPage(auth: widget.auth,))
+          MaterialPageRoute(builder: (context) => SignupPage(
+            auth: widget.auth,
+            loginCallback: widget.loginCallback,)
+          )
         );
       }
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:toto_real/Services/authentication.dart';
-import './Widgets/TotoAppBar.dart';
-import './Widgets/showLogo.dart';
+import 'package:toto_real/Authentication Pages/Services/authentication.dart';
+import '../Widgets/TotoAppBar.dart';
+import '../Widgets/showLogo.dart';
 
 class SignupPage extends StatefulWidget {
   SignupPage({this.auth, this.loginCallback});
@@ -18,19 +18,16 @@ class _SignupPageState extends State<SignupPage> {
 
   String _email;
   String _password;
-  String _first_name;
-  String _last_name;
+  String _firstName;
+  String _lastName;
   String _pet_name;
   String _errorMessage;
   String _successMessage;
-  bool _isLoading;
 
   @override
   void initState() {
     _errorMessage = "";
     _successMessage = "";
-    print(_successMessage);
-    _isLoading = false;
     super.initState();
   }
 
@@ -49,7 +46,6 @@ class _SignupPageState extends State<SignupPage> {
     setState(() {
       _errorMessage = "";
       _successMessage = "";
-      _isLoading = true;
     });
 
     // If form is valid then try to signup
@@ -58,12 +54,11 @@ class _SignupPageState extends State<SignupPage> {
       userId = await widget.auth.signUp(
         _email, 
         _password, 
-        _first_name,
-        _last_name,
+        _firstName,
+        _lastName,
         _pet_name,
       );
       setState(() {
-        _isLoading = false;
       });
 
       // Checks if the userId return is valid, meaning the signUp completed
@@ -76,14 +71,12 @@ class _SignupPageState extends State<SignupPage> {
       }
 
       setState(() {
-        _isLoading = false;
         _formKey.currentState.reset();
       });
 
     }
     // Else reset the form
     else {
-      _isLoading = false;
     }
   }
 
@@ -175,7 +168,7 @@ class _SignupPageState extends State<SignupPage> {
           ),
         ),
         validator: (value) => value.isEmpty ? 'First name can\'t be empty' : null,
-        onSaved: (value) => _first_name = value.trim(),
+        onSaved: (value) => _firstName = value.trim(),
       ),
     );
   }
@@ -195,7 +188,7 @@ class _SignupPageState extends State<SignupPage> {
           ),
         ),
         validator: (value) => value.isEmpty ? 'Last name can\'t be empty' : null,
-        onSaved: (value) => _last_name = value.trim(),
+        onSaved: (value) => _lastName = value.trim(),
       ),
     );
   }

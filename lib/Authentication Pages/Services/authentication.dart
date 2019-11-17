@@ -32,11 +32,12 @@ class Auth implements BaseAuth {
   //Google sign in autehenticaiton
   final GoogleSignIn googleSignIn = GoogleSignIn();
 
+  /// Signs into firebase using firebaseAuth. Returns an empty string if an
+  /// error is throw meaning that authentication during sign in was unsucessful
   Future<String> signIn(String email, String password) async {
     try {
       AuthResult result = await _firebaseAuth.signInWithEmailAndPassword(
         email: email, password: password);
-
       FirebaseUser user = result.user;
       return user.uid;
     } catch(e) {
@@ -77,19 +78,42 @@ class Auth implements BaseAuth {
   }
   //End of Google ---
 
-
-  // In the singup, we need to catch various errors
+  /// Method that performs signUp. The unique identifier for each account is an
+  /// email address, so if a user trys to sign up with an email that already 
+  /// exists in the authentication database, then the signup method will throw
+  /// an error.
   Future<String> signUp(String email, String password, String firstName, String lastName, String petName) async {
     try {
       AuthResult result = await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
       FirebaseUser user = result.user;
-      // If there is no failure, then create an entry in the database with the following fields
-      _dbref.child(user.uid).set({
-        'email': email,
-        'firstName': firstName,
-        'lastName': lastName,
-        'petName': petName
+      /* If no errors are thrown from creating an account, then we want to
+       * immediately logout. If not the logic with root_page will mess up on
+       * reopening the application
+       */
+      _firebaseAuth.signOut();
+      // Adds the user to the database
+      _dbref.child('users/' + user.uid).set({
+        'firstName' : firstName,
+        'lastName' : lastName,
+        'petName' : petName,
+        'email' : email,
+        'photoURL' : '',
+      });
+      // Sets default values for levels,settings, and schedules
+      _dbref.child('settings/' + user.uid).set({
+        'darkMode' : false,
+        'notifications' : true
+      });
+      _dbref.child('levels/' + user.uid).set({
+        'waterLevel' : 100,
+        'foodLevel' : 100,
+        'waterDispensing' : false,
+        'foodDispensing' : false
+      });
+      // Blank for now but need to come up with a schema 
+      _dbref.child('schedules' + user.uid).set({
+
       });
       return user.uid;
     }
