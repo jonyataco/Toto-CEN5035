@@ -1,14 +1,12 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:toto_real/Tabs/AccountScreen/Models/account_model.dart';
 
 class ProfilePic extends StatelessWidget {
-  final String photoURL;
-  ProfilePic(this.photoURL);
-
   Widget build(BuildContext context) {
     final newURL = Provider.of<AccountModel>(context);
 
@@ -25,7 +23,7 @@ class ProfilePic extends StatelessWidget {
       });
     }
 
-    /// Gets an image from the camera roll
+    /// Gets an image from the gallery
     Future<void> getImage() async {
       var image = await ImagePicker.pickImage(source: ImageSource.gallery);
       if (image == null)
@@ -35,31 +33,63 @@ class ProfilePic extends StatelessWidget {
       }
     }
 
-    Future<NetworkImage> getImageFromDB(String path) async {
+    Future<String> getImagePathFromDB(String path) async {
       print('getting FirebaseStorage');
       StorageReference storageRef = FirebaseStorage.instance.ref().child(path);
       var url = await storageRef.getDownloadURL();
       url.toString();
-      print('got the url ${url}');
-      return NetworkImage(url);
+      return url;
     }
 
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-      child: InkWell(
-        onTap: getImage,
-        child: Container(
-          width: 200,
-          height: 200,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              fit: BoxFit.fill,
-              image: newURL.photoURL == '' ? NetworkImage("https://icon-library.net/images/person-icon-silhouette-png/person-icon-silhouette-png-11.jpg") : NetworkImage("https://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/goku-son-kakarot-dragon-ball-super-broly-1.91.jpg")
-            )
+    if (newURL.photoURL == '') {
+      return Padding(
+        padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+        child: InkWell(
+          onTap: getImage,
+          child: Container(
+            width: 200,
+            height: 200,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: NetworkImage("https://icon-library.net/images/person-icon-silhouette-png/person-icon-silhouette-png-11.jpg") 
+              )
+            ),
           ),
-        ),
-      )
-    );
+        )
+      );
+    } else {
+      return FutureBuilder<String>(
+        future: getImagePathFromDB(newURL.photoURL),
+        builder: (BuildContext context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return CircularProgressIndicator();
+          }
+          else if (snapshot.connectionState == ConnectionState.none) {
+            return CircularProgressIndicator();
+          }
+          else if (snapshot.connectionState == ConnectionState.done) {
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: InkWell(
+                onTap: getImage,
+                child: Container(
+                  width: 200,
+                  height: 200,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.fill,
+                      image: NetworkImage(snapshot.data)
+                    )
+                  ),
+                ),
+              )
+            );
+          }
+        },
+      );
+    }
   }
 }

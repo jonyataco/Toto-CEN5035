@@ -100,7 +100,7 @@ class Auth implements BaseAuth {
         'lastName' : lastName,
         'petName' : petName,
         'email' : email,
-        'photoURL' : 'none',
+        'photoURL' : '',
       });
       // Sets default values for levels,settings, and schedules
       _dbref.child('settings/' + user.uid).set({
