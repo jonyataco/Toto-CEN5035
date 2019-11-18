@@ -52,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage2> {
       if (_streamUrl != null) {
         _streamUrl = null;
       } else {
-        _streamUrl = 'https://10.12.84.119:8081';
+        _streamUrl = 'https://192.168.0.15:8081/';
       }
     });
   }
