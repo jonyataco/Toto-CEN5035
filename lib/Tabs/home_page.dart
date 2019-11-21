@@ -10,6 +10,7 @@ import '../Tabs/AccountScreen/Models/account_model.dart';
 import '../Authentication Pages/Services/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 import '../Tabs/VideoChatScreen/VideochatScreen.dart';
+import 'SettingsScreen/Widgets/ThemeChanger.dart';
 
 
 void main() => runApp(MyApp());
@@ -91,6 +92,7 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
   // selected
   @override
   Widget build(BuildContext context) {
+    final themeChanger = Provider.of<ThemeChanger>(context);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
@@ -106,7 +108,7 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
             textAlign: TextAlign.center,
             style: TextStyle(
             fontSize: 30,
-            color: Colors.pink[800],
+            color: Colors.deepOrange,
             )
           ),
 
@@ -146,9 +148,9 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
             )
           ],
           currentIndex: _currentIndex,
-          selectedItemColor: Colors.amber[800],
+          selectedItemColor: Colors.deepOrange,
           onTap: _onItemTapped,
-          unselectedItemColor: Colors.blueGrey,
+          unselectedItemColor: Colors.white,
         ),
       ),
     );

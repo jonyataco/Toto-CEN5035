@@ -32,8 +32,10 @@ class Schedule extends StatelessWidget {
             padding: EdgeInsets.only(right: 30),
             child: RaisedButton(
               onPressed: () => {print('Editing the schedule')},
+              color: Colors.cyan,
               child: Text(
                 'Edit schedule',
+                style: TextStyle(color: Colors.white),
               )
             )
           )

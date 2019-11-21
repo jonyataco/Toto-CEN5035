@@ -43,7 +43,7 @@ class DispenseFood extends StatelessWidget {
               child: IconButton(
                 icon: Icon(Icons.pets),
                 iconSize: 40,
-                color: Colors.pinkAccent,
+                color: Colors.deepOrange,
                 onPressed: () => {level.foodLevel = level.foodLevel - 10}
               ),
             ),

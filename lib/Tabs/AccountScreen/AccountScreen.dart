@@ -36,7 +36,7 @@ class AccountScreen extends StatelessWidget {
               width: 150,
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: Colors.blueAccent
+                  color: Colors.cyan
                 ),
                 child: RaisedButton(
                   onPressed: null,
