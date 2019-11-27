@@ -1,37 +1,7 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-/* import 'package:flutter/material.dart';
-import 'package:flutter_test/flutter_test.dart';
-
-import 'package:toto_real/main.dart';
-
-void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
-
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
-
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
-  });
-}
- */
-
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:toto_real/Tabs/PawScreen/PawScreen.dart';
+import 'scheduleWidget.dart';
 
 void main() => runApp(DateTimePicker());
 
@@ -43,9 +13,10 @@ class DateTimePicker extends StatefulWidget {
 class _DateTimePickerState extends State<DateTimePicker> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+    return Scaffold(
+      //debugShowCheckedModeBanner: false,
+      //home: HomeScreen(),
+      body: HomeScreen(),
     );
   }
 }
@@ -68,7 +39,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('DateTime Picker'),
+        title: Text('Schedule',
+               style: TextStyle(color: Colors.red,
+               fontSize: 27,
+               ),
+        ),
+    
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -192,7 +168,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 color: Colors.white,
-              )
+              ),
+              RaisedButton(
+                          onPressed: () {
+                          Navigator.pop(context);
+                          //Navigator.pushReplacementNamed(context, '/PawScreen/PawScreen');
+                        },
+                        child: Text("Set Daily"),
+                        ),
+
             ],
           ),
         ),
@@ -200,5 +184,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
