@@ -20,7 +20,7 @@ class SettingsScreen extends StatefulWidget {
 
 }
 
-class _SettingsScreen extends State<SettingsScreen>{
+class _SettingsScreen extends State<SettingsScreen> {
   
   Brightness brightness;
   bool _notificationSelected = false;
@@ -38,16 +38,15 @@ class _SettingsScreen extends State<SettingsScreen>{
   }
 
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
       final themeChanger = Provider.of<ThemeChanger>(context);
-      
       return Scaffold(
         body: ListView(
           children: <Widget>[
             SwitchListTile(
               title: Text('Push Notifications', style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.5),),
                 subtitle: Text('Allow Toto to send notifications'), 
-                  value: _notificationSelected,
+                  value: themeChanger.notificationSelected,
                     onChanged: (bool newValue) {
                       setState(() {
                         _notificationSelected = newValue;
@@ -58,7 +57,7 @@ class _SettingsScreen extends State<SettingsScreen>{
             SwitchListTile(
               title: Text('Dark Mode', style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.5),),
               subtitle: Text('Switch the app display to dark mode'), 
-              value: _darkSelected,
+              value: themeChanger.darkSelected,
               onChanged: (newValue) {
                 setState(() {
                   themeChanger.switchTheme();
@@ -100,6 +99,9 @@ class _SettingsScreen extends State<SettingsScreen>{
       )       
     );            
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 

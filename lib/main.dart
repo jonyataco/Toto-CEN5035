@@ -23,29 +23,6 @@ void main() {
 //   }
 // }
 
-<<<<<<< HEAD
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return new DynamicTheme(
-      defaultBrightness: Brightness.light,
-      data: (brightness) => new ThemeData(
-        primarySwatch: Colors.cyan,
-        brightness: brightness,
-      ),
-      themedWidgetBuilder: (context, theme) {
-        return new MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Toto',
-          theme: theme,
-          home: new RootPage(auth: Auth()),
-        );
-      }
-    );
-  }
-}
-=======
->>>>>>> kill-me-now
 // class MyApp extends StatelessWidget {
 //   @override
 //   Widget build(BuildContext context) {
