@@ -1,0 +1,56 @@
+filename, language, YAML, Dart, Groovy, JSON, C++, Swift, Properties, XML, Markdown, Java, comment, blank, total
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\README.md, Markdown, 0, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 7, 19
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\android\app\build.gradle, Groovy, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 3, 9, 53
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\android\app\google-services.json, JSON, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 40
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\android\app\src\main\AndroidManifest.xml, XML, 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 13, 3, 40
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\android\app\src\main\java\com\example\flutterlogindemo\MainActivity.java, Java, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 0, 3, 14
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\android\app\src\main\res\drawable\launch_background.xml, XML, 0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 2, 2, 13
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\android\app\src\main\res\values\styles.xml, XML, 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 2, 1, 9
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\android\build.gradle, Groovy, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 0, 5, 31
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\android\gradle.properties, Properties, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 2, 5
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\android\gradle\wrapper\gradle-wrapper.properties, Properties, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 1, 1, 7
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\android\settings.gradle, Groovy, 0, 0, 12, 0, 0, 0, 0, 0, 0, 0, 0, 4, 16
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\ios\Runner\AppDelegate.swift, Swift, 0, 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 2, 15
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\ios\Runner\Assets.xcassets\AppIcon.appiconset\Contents.json, JSON, 0, 0, 0, 122, 0, 0, 0, 0, 0, 0, 0, 1, 123
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\ios\Runner\Assets.xcassets\LaunchImage.imageset\Contents.json, JSON, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 0, 1, 24
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\ios\Runner\Assets.xcassets\LaunchImage.imageset\README.md, Markdown, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 2, 5
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\ios\Runner\Base.lproj\LaunchScreen.storyboard, XML, 0, 0, 0, 0, 0, 0, 0, 36, 0, 0, 1, 1, 38
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\ios\Runner\Base.lproj\Main.storyboard, XML, 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 1, 1, 27
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\ios\Runner\Runner-Bridging-Header.h, C++, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Authentication Pages\Models\new_user.dart, Dart, 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 29
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Authentication Pages\Models\user_schedule.dart, Dart, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Authentication Pages\Models\user_settings.dart, Dart, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 3, 4, 23
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Authentication Pages\Services\authentication.dart, Dart, 0, 101, 0, 0, 0, 0, 0, 0, 0, 0, 19, 26, 146
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Authentication Pages\Views\create_account.dart, Dart, 0, 252, 0, 0, 0, 0, 0, 0, 0, 0, 6, 23, 281
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Authentication Pages\Views\loginPage.dart, Dart, 0, 269, 0, 0, 0, 0, 0, 0, 0, 0, 10, 29, 308
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Authentication Pages\Views\root_page.dart, Dart, 0, 84, 0, 0, 0, 0, 0, 0, 0, 0, 10, 12, 106
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Authentication Pages\Widgets\TotoAppBar.dart, Dart, 0, 23, 0, 0, 0, 0, 0, 0, 0, 0, 2, 3, 28
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Authentication Pages\Widgets\showLogo.dart, Dart, 0, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 18
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\AccountScreen\AccountScreen.dart, Dart, 0, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 59
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\AccountScreen\Models\account_model.dart, Dart, 0, 48, 0, 0, 0, 0, 0, 0, 0, 0, 2, 8, 58
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\AccountScreen\Models\user_account.dart, Dart, 0, 29, 0, 0, 0, 0, 0, 0, 0, 0, 7, 3, 39
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\AccountScreen\Widgets\camera.dart, Dart, 0, 39, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 48
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\AccountScreen\Widgets\profile_pic.dart, Dart, 0, 84, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 94
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\AccountScreen\Widgets\user_info.dart, Dart, 0, 49, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 52
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\NotificationScreen\NotificationScreen.dart, Dart, 0, 28, 0, 0, 0, 0, 0, 0, 0, 0, 7, 7, 42
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\NotificationScreen\Widgets\TotoNotificationWidget.dart, Dart, 0, 55, 0, 0, 0, 0, 0, 0, 0, 0, 14, 3, 72
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\PawScreen\Models\levelModel.dart, Dart, 0, 50, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5, 57
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\PawScreen\PawScreen.dart, Dart, 0, 34, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3, 38
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\PawScreen\Widgets\dispenseFood.dart, Dart, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 55
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\PawScreen\Widgets\dispenseWater.dart, Dart, 0, 52, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 55
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\PawScreen\Widgets\foodLevel.dart, Dart, 0, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 45
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\PawScreen\Widgets\scheduleWidget.dart, Dart, 0, 77, 0, 0, 0, 0, 0, 0, 0, 0, 150, 14, 241
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\PawScreen\Widgets\schedulepage.dart, Dart, 0, 315, 0, 0, 0, 0, 0, 0, 0, 0, 41, 31, 387
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\PawScreen\Widgets\totoLevels.dart, Dart, 0, 49, 0, 0, 0, 0, 0, 0, 0, 0, 10, 3, 62
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\PawScreen\Widgets\waterLevel.dart, Dart, 0, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 45
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\SettingsScreen\SettingsScreen.dart, Dart, 0, 93, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17, 111
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\SettingsScreen\Widgets\PushNotifications.dart, Dart, 0, 55, 0, 0, 0, 0, 0, 0, 0, 0, 25, 19, 99
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\SettingsScreen\Widgets\ReportProblemWidget.dart, Dart, 0, 92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 106
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\SettingsScreen\Widgets\SendFeedbackWidget.dart, Dart, 0, 92, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 106
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\SettingsScreen\Widgets\ThemeChanger.dart, Dart, 0, 46, 0, 0, 0, 0, 0, 0, 0, 0, 35, 12, 93
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\VideoChatScreen\VideochatScreen.dart, Dart, 0, 100, 0, 0, 0, 0, 0, 0, 0, 0, 99, 20, 219
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\Tabs\home_page.dart, Dart, 0, 122, 0, 0, 0, 0, 0, 0, 0, 0, 20, 17, 159
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\lib\main.dart, Dart, 0, 37, 0, 0, 0, 0, 0, 0, 0, 0, 33, 12, 82
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\pubspec.yaml, YAML, 42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 17, 102
+c:\Users\Arturo\Desktop\Toto\Toto-CEN5035\test\widget_test.dart, Dart, 0, 169, 0, 0, 0, 0, 0, 0, 0, 0, 30, 16, 215
+Total, -, 42, 2694, 79, 185, 1, 13, 8, 100, 15, 11, 614, 399, 4161
