@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeChanger with ChangeNotifier {
   ThemeData _themeData;
+  bool _notificationSelected;
+  bool _darkSelected;
   SharedPreferences _prefs;
   static const String _themeField = 'theme';
   static const int _lightThemeInt = 0;
@@ -23,6 +25,8 @@ class ThemeChanger with ChangeNotifier {
   ); 
 
   ThemeChanger() {
+    _notificationSelected = false;
+    _darkSelected = false;
     _themeData = _lightTheme;
     asyncInit();
   }
@@ -37,15 +41,20 @@ class ThemeChanger with ChangeNotifier {
     }
     notifyListeners();
   }
+
   ThemeData get theme => _themeData;
+  bool get notificationSelected => _notificationSelected;
+  bool get darkSelected => _darkSelected;
 
   void switchTheme() {
     if (_themeData == _lightTheme) {
       _themeData = _darkTheme;
+      _darkSelected = true;
       _prefs.setInt(_themeField, _darkThemeInt);
     } 
     else {
       _themeData = _lightTheme;
+      _darkSelected = false;
       _prefs.setInt(_themeField, _lightThemeInt);
     }
     notifyListeners();
