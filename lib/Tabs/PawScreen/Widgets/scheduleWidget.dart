@@ -3,14 +3,22 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'schedulepage.dart';
 
+import 'package:firebase_database/firebase_database.dart';
+
 class Schedule extends StatelessWidget {
   final String _scheduleDetails;
   final String _scheduleButtonText;
-
+  
+  final databaseReference = FirebaseDatabase.instance.reference()
+  .child('schedule');
+  //arturo
   Schedule(this._scheduleDetails,this._scheduleButtonText);
+  String schedule = "getSchedule";
+ //String schedule2 = 'Data : ${snapshot.value}';
 
   @override
   Widget build(BuildContext context) {
+
     return Row(
       children: <Widget>[
         Expanded(
@@ -18,13 +26,27 @@ class Schedule extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.only(left: 20, right: 20),
             child: Center(
-              child: Text(
-                'Your next feeding time is (FEEDING TIME)',
+              
+              child:  Text(
+                //'Your next feeding time is (FEEDING TIME)', arturo
+                getData() ?? schedule,
+                //schedule,
+                
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold
                 ),
-              ),
+                
+              ), 
+
+            /*   RaisedButton(
+                  onPressed: (){
+                    getData();
+                  },
+                  child: Text(schedule2),
+                  ) */
+
+
             )
           )
         ),
@@ -49,6 +71,15 @@ class Schedule extends StatelessWidget {
       ],
     );
   }
+
+  getData(){
+    databaseReference.once().then((DataSnapshot snapshot) {
+     print('Data : ${snapshot.value}');
+     schedule = (snapshot.value).toString();
+     //print('Data : ${snapshot.value}');
+     //print(schedule);
+    });
+  }
 }
 
 class SchedulePage extends StatelessWidget {
@@ -70,6 +101,7 @@ class SchedulePage extends StatelessWidget {
       ),
     );
   }
+  
 }
 
 /* class SchedulePage2 extends StatelessWidget {
@@ -219,3 +251,36 @@ class SchedulePage extends StatelessWidget {
   }
   
 } */
+
+  class firebaseSchedule {
+  String key;
+  String userId;
+
+  String levels;
+  String foodDispensing;
+  String foodLevel;
+  String waterLevel;
+
+  String schedule;
+  String daily;
+  String date;
+  String time;
+  
+
+  firebaseSchedule(this.daily, this.time, this.date);
+
+  firebaseSchedule.fromSnapshot(DataSnapshot snapshot) :
+    key = snapshot.key,
+    date = snapshot.value["Date"],
+    time = snapshot.value["Time"],
+    daily = snapshot.value["Daily"];
+
+
+  toJson() {
+    return {
+      "date": date,
+      "time": time,
+      "daily": daily,
+    };
+  }
+}
