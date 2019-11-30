@@ -23,7 +23,6 @@ class RootPage extends StatefulWidget {
   State<StatefulWidget> createState() => new _RootPageState();
 }
 
-
 class _RootPageState extends State<RootPage> {
   AuthStatus authStatus = AuthStatus.NOT_DETERMINED;
   String _userId = "";
