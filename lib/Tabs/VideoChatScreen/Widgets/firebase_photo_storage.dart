@@ -1,6 +1,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:toto_real/Tabs/VideoChatScreen/Widgets/loading_ind.dart';
 
 enum ImageDownloadState { Idle, GettingURL, Downloading, Done, Error }
 
@@ -8,18 +9,18 @@ class firebaseStorageImage extends StatefulWidget {
   /// The reference of the image that has to be loaded.
   final StorageReference reference;
   /// The widget that will be displayed when loading if no [placeholderImage] is set.
-  final Widget fallbackWidget;
+  final Widget fallbackWidget = ShowLoading();
   /// The widget that will be displayed if an error occurs.
   final Widget errorWidget;
   /// The image that will be displayed when loading if no [fallbackWidget] is set.
-  final ImageProvider placeholderImage;
+  final ImageProvider placeholderImage = AssetImage('assets/test1.jpg');
 
   firebaseStorageImage(
       {Key key,
         @required this.reference,
         @required this.errorWidget,
-        this.fallbackWidget,
-        this.placeholderImage}) {
+        fallbackWidget,
+        placeholderImage}) {
     assert(
     (this.fallbackWidget == null && this.placeholderImage != null) ||
         (this.fallbackWidget != null && this.placeholderImage == null),
@@ -33,8 +34,8 @@ class firebaseStorageImage extends StatefulWidget {
 
 class _firebaseStorageImageState extends State<firebaseStorageImage>
     with SingleTickerProviderStateMixin {
-  _firebaseStorageImageState(StorageReference reference, this.fallbackWidget,
-      this.errorWidget, this.placeholderImage) {
+  _firebaseStorageImageState(StorageReference reference, fallbackWidget,
+      this.errorWidget, placeholderImage) {
     var url = reference.getDownloadURL();
     this._imageDownloadState = ImageDownloadState.GettingURL;
     url.then(this._setImageData).catchError((err) {
@@ -43,11 +44,11 @@ class _firebaseStorageImageState extends State<firebaseStorageImage>
   }
 
   /// The widget that will be displayed when loading if no [placeholderImage] is set.
-  final Widget fallbackWidget;
+  Widget fallbackWidget = ShowLoading();
   /// The widget that will be displayed if an error occurs.
   final Widget errorWidget;
   /// The image that will be displayed when loading if no [fallbackWidget] is set.
-  final ImageProvider placeholderImage;
+  ImageProvider placeholderImage = AssetImage('assets/test1.jpg');
 
   /// The image that will be/has been downloaded from the [reference].
   Image _networkImage;

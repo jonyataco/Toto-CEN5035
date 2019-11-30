@@ -1,6 +1,8 @@
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/vlc_player.dart';
 import 'package:flutter_vlc_player/vlc_player_controller.dart';
+
 
 void main() => runApp(VideoScreen());
 
@@ -30,6 +32,7 @@ class MyHomePage2 extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage2> {
   String _streamUrl;
+  Uint8List image;
   VlcPlayerController _vlcViewController;
   @override
   void initState() {
@@ -48,6 +51,13 @@ class _MyHomePageState extends State<MyHomePage2> {
     });
   }
 
+  void _createCameraImage() async {
+    Uint8List file = await _vlcViewController.makeSnapshot();
+    setState(() {
+      image = file;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -57,11 +67,11 @@ class _MyHomePageState extends State<MyHomePage2> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-     // appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        //title: Text(widget.title),
-     // ),
+      // appBar: AppBar(
+      // Here we take the value from the MyHomePage object that was created by
+      // the App.build method, and use it to set our appbar title.
+      //title: Text(widget.title),
+      // ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
@@ -83,48 +93,35 @@ class _MyHomePageState extends State<MyHomePage2> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             _streamUrl == null
-                ? 
-                   Column(
-                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                     children: <Widget>[
-                            /* RaisedButton(
-                                  onPressed: (){},
-                                  child: Text('Hello Flutter Master',
-                                  style: TextStyle(
-                                    fontSize: 32.0,
-                                    fontWeight: FontWeight.bold,
-                                    fontStyle: FontStyle.italic,
-                                    textBaseline: TextBaseline.alphabetic
-                                ),),
-                                
-                            ), */
+                ?
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Padding(
+                  //padding: EdgeInsets.all(10.0),
+                  padding: EdgeInsets.only(top: 10.0),
+                  child: Image.asset(
+                    'assets/test1.jpg',
+                  ),
+                ),
+                Padding(
+                  //padding: EdgeInsets.all(1.0),
+                  padding: EdgeInsets.only(bottom: 10.0),
+                  child: RichText(
+                    text: TextSpan(children: [
+                      TextSpan(
+                          text: 'Stream Closed',
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,)
+                        //background: Paint()..color = Colors.white),
+                      )
+                    ]),
+                  ),
+                ),
 
-                            Padding(
-                              //padding: EdgeInsets.all(10.0),
-                              padding: EdgeInsets.only(top: 10.0),
-                              child: Image.asset(
-                              'assets/test1.jpg',
-                                 ),
-                            ),
-
-                            Padding(
-                              //padding: EdgeInsets.all(1.0),
-                              padding: EdgeInsets.only(bottom: 10.0),
-                              child: RichText(
-                                text: TextSpan(children: [  
-                                      TextSpan(
-                                        text: 'Stream Closed',
-                                        style: TextStyle(
-                                            fontSize: 30.0,
-                                            fontWeight: FontWeight.bold,
-                                            color: Colors.black,)
-                                            //background: Paint()..color = Colors.white),
-                                      )
-                                    ]),
-                              ),
-                            ),
-
-                            /* Center(
+                /* Center(
                                 
                                 child: RichText(
                                   text: TextSpan(children: [  
@@ -140,8 +137,8 @@ class _MyHomePageState extends State<MyHomePage2> {
                                 ),
                               ), */
 
-                     ],)
-                  
+              ],)
+
 /*                     child: Center(
                       
                       child: RichText(
@@ -157,35 +154,35 @@ class _MyHomePageState extends State<MyHomePage2> {
                         ]),
                       ),
                     ), */
-                  
+
 
                 : new VlcPlayer(
-                    defaultHeight: 480,
-                    defaultWidth: 640,
-                    /* defaultHeight: 480,
+              defaultHeight: 480,
+              defaultWidth: 640,
+              /* defaultHeight: 480,
                     defaultWidth: 360, */
-                    url: _streamUrl,
-                    controller: _vlcViewController,
-                    placeholder: Container(),
-                  ), 
-              Align(
-                alignment: Alignment.bottomCenter,
-               child: Padding(
-                        padding: const EdgeInsets.all(30.0),
-                        child: RaisedButton(
-                onPressed: 
-                   _incrementCounter,
-                child: Icon(
-                   _streamUrl == null ? Icons.play_arrow : Icons.pause, size: 50,),
-                //textspam: Text("Play"),
-                padding: EdgeInsets.all(30),
-                shape: CircleBorder(side: BorderSide(color: Colors.cyan, width: 10),)
-              ),
-                      ),
-                 
+              url: _streamUrl,
+              controller: _vlcViewController,
+              placeholder: Container(),
             ),
-                                
-           /*    new RaisedButton(
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: RaisedButton(
+                    onPressed: _incrementCounter,
+                    child: Icon(
+                      _streamUrl == null ? Icons.play_arrow : Icons.pause,
+                      size: 30,),
+                    //textspam: Text("Play"),
+                    padding: EdgeInsets.all(30),
+                    shape: CircleBorder(
+                      side: BorderSide(color: Colors.cyan, width: 10),)),
+              ),
+
+            ),
+
+            /*    new RaisedButton(
                 
                 onPressed: 
                    _incrementCounter,
@@ -200,11 +197,36 @@ class _MyHomePageState extends State<MyHomePage2> {
           ],
         ),
       ),
-     /*  floatingActionButton: FloatingActionButton(
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              FloatingActionButton.extended(
+                onPressed: () {Navigator.pop(context);},
+                icon: Icon(Icons.navigate_before),
+                label: Text('Back to Main'),
+                heroTag: 0,
+                backgroundColor: Colors.cyan,
+
+              ),
+              FloatingActionButton(
+                onPressed: () {_createCameraImage();},
+                child: Icon(Icons.camera),
+                heroTag: 1,
+                backgroundColor: Colors.cyan,
+              )
+            ],
+          ),
+        )
+      /*  floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: Icon(_streamUrl == null ? Icons.play_arrow : Icons.pause),
       ), */ // This trailing comma makes auto-formatting nicer for build methods.
     );
+
+
   }
 }
