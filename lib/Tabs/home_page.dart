@@ -111,17 +111,16 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
             color: Colors.deepOrange,
             )
           ),
-
+          
   //Temporary log out,,, the logout button should be in the account or settings page. 
   //when that pages gets build, it will contain a logout
   //temporary log out
-          actions: <Widget>[
-              new FlatButton(
-          child: new Text('Logout',
-                style: new TextStyle(fontSize: 17.0, color: Colors.blueGrey)),
-                onPressed: signOut)
-            ],
-        
+          // actions: <Widget>[
+          //     new FlatButton(
+          // child: new Text('Logout',
+          //       style: new TextStyle(fontSize: 17.0, color: Colors.blueGrey)),
+          //       onPressed: signOut)
+          //   ],
         ),
         body: _widgetOptions.elementAt(_currentIndex),
         bottomNavigationBar: BottomNavigationBar(

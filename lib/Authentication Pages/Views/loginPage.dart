@@ -268,7 +268,7 @@ class _LoginPageState extends State<LoginPage> {
             'Login',
             style: TextStyle(
               fontSize: 20.0, 
-              color: Colors.orange
+              color: Colors.deepOrange
             )
           ),
           onPressed: validateAndSubmit,

@@ -3,6 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ThemeChanger with ChangeNotifier {
   ThemeData _themeData;
+  bool _notificationSelected;
+  bool _darkSelected;
   SharedPreferences _prefs;
   static const String _themeField = 'theme';
   static const int _lightThemeInt = 0;
@@ -23,6 +25,8 @@ class ThemeChanger with ChangeNotifier {
   ); 
 
   ThemeChanger() {
+    _notificationSelected = false;
+    _darkSelected = false;
     _themeData = _lightTheme;
     asyncInit();
   }
@@ -37,56 +41,22 @@ class ThemeChanger with ChangeNotifier {
     }
     notifyListeners();
   }
+
   ThemeData get theme => _themeData;
+  bool get notificationSelected => _notificationSelected;
+  bool get darkSelected => _darkSelected;
 
   void switchTheme() {
     if (_themeData == _lightTheme) {
       _themeData = _darkTheme;
+      _darkSelected = true;
       _prefs.setInt(_themeField, _darkThemeInt);
     } 
     else {
       _themeData = _lightTheme;
+      _darkSelected = false;
       _prefs.setInt(_themeField, _lightThemeInt);
     }
     notifyListeners();
   }
 }
-
-
-
-// class DarkMode extends StatelessWidget {
-//   const DarkMode({Key key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: ListView.builder(
-//         padding: EdgeInsets.all(8),
-//         itemCount: AppTheme.values.length,
-//         itemBuilder: (context, index) {
-//           // Enums expose their values as a list - perfect for ListView
-//           // Store the theme for the current ListView item
-//           final itemAppTheme = AppTheme.values[index];
-//           return Card(
-//             // Style the cards with the to-be-selected theme colors
-//             color: appThemeData[itemAppTheme].primaryColor,
-//             child: ListTile(
-//               title: Text(
-//                 itemAppTheme.toString(),
-//                 // To show light text with the dark variants...
-//                 style: appThemeData[itemAppTheme].textTheme.body1,
-//               ),
-//               onTap: () {
-//                 // This will make the Bloc output a new ThemeState,
-//                 // which will rebuild the UI because of the BlocBuilder in main.dart
-//                 BlocProvider.of<ThemeBloc>(context)
-//                     .dispatch(ThemeChanged(theme: itemAppTheme));
-//               },
-//             ),
-//           );
-//         },
-//       ),
-//     );
-//   }
-// }
-
