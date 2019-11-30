@@ -58,6 +58,11 @@ class FoodLevel extends StatelessWidget {
             warning = Colors.green;
           }
 
+          int value = snapshot.data.snapshot.value;
+          if (snapshot.data.snapshot.value < 0) {
+            value = 0;
+          }
+
           return Expanded(
             flex: 1,
             child: Column(
@@ -69,7 +74,7 @@ class FoodLevel extends StatelessWidget {
                       375, 
                       130, 
                       Colors.brown, 
-                      (snapshot.data.snapshot.value.toDouble() * 372/100),
+                      (value * 372/100),
                       warning)
                     ),
                   )
@@ -78,7 +83,7 @@ class FoodLevel extends StatelessWidget {
                   flex: 1,
                   child: Center(
                     child: Text(
-                      'Food Level: ${snapshot.data.snapshot.value}%',
+                      'Food Level: ${value}%',
                       style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
