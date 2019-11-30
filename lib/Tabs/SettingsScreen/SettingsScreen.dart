@@ -7,6 +7,7 @@ import 'Widgets/ReportProblemWidget.dart';
 import 'Widgets/SendFeedbackWidget.dart';
 import 'package:toto_real/Authentication Pages/Services/authentication.dart';
 import 'Widgets/ThemeChanger.dart';
+import 'dart:async';
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key key, this.auth, this.logoutCallback}): super(key: key);
@@ -24,13 +25,11 @@ class _SettingsScreen extends State<SettingsScreen> {
   bool _darkSelected = false;
   String text;
 
-  
   Future<void> signOut() async{
     try {
       await widget.auth.signOut();
       widget.logoutCallback();
-    } 
-    catch (e) {
+    } catch (e) {
       print(e);
     }
     //Navigator.popUntil(context, ModalRoute.withName("/"));
@@ -133,16 +132,15 @@ class _SettingsScreen extends State<SettingsScreen> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)
               ),
-            color: Colors.cyan,
-            child: Text('Logout',
-              style: TextStyle(fontSize: 23.0, color: Colors.deepOrange)),
-            onPressed: signOut,
+              color: Colors.cyan,
+              child: Text('Logout',
+                style: TextStyle(fontSize: 23.0, color: Colors.deepOrange)),
+              onPressed: signOut,
             ),
           )
-        ]            
-      )       
-    );            
-  }
+        ]
+      )
+  );}
 
   // @override
   // bool get wantKeepAlive => true;
