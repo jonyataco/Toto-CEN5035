@@ -146,7 +146,6 @@ class _SettingsScreen extends State<SettingsScreen> {
 
   @override
   bool get wantKeepAlive => true;
-
 }
 
 
