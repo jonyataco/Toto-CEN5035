@@ -15,19 +15,19 @@ class AccountScreen extends StatelessWidget {
           Camera(),
           Expanded(
             flex: 2,
-            child: UserInfo('First Name', account.firstName, Colors.blue)
+            child: UserInfo('First Name', account.firstName, /*Colors.blue*/)
           ),
           Expanded(
             flex: 2,
-            child: UserInfo('Last Name', account.lastName, Colors.pink)
+            child: UserInfo('Last Name', account.lastName, /*Colors.pink*/)
           ),
           Expanded(
             flex: 2,
-            child: UserInfo('Email', account.email, Colors.yellow)
+            child: UserInfo('Email', account.email, /*Colors.yellow*/)
           ),
           Expanded(
             flex: 2,
-            child: UserInfo('Pet Name', account.petName + ' 🐶', Colors.indigo)
+            child: UserInfo('Pet Name', account.petName + ' 🐶', /*Colors.indigo*/)
           ),
           Container(
             margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
@@ -39,13 +39,15 @@ class AccountScreen extends StatelessWidget {
                   color: Colors.cyan
                 ),
                 child: RaisedButton(
-                  onPressed: null,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5.0)
+                    ),
+                 onPressed: null,
                   child: Text(
-                    'Reset password',
+                    'Reset Password',
                     style: TextStyle(
-                      fontFamily: 'Arial',
                       fontSize: 16,
-                      color: Colors.white
+                      color: Colors.deepOrange
                     )
                   )
                 )

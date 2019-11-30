@@ -2,14 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:toto_real/Tabs/SettingsScreen/Widgets/ThemeChanger.dart';
-import '../home_page.dart';
 import 'Widgets/PushNotifications.dart';
 import 'Widgets/ReportProblemWidget.dart';
 import 'Widgets/SendFeedbackWidget.dart';
 import 'package:toto_real/Authentication Pages/Services/authentication.dart';
 import 'Widgets/ThemeChanger.dart';
-
-void main() => runApp(MyApp());
 
 class SettingsScreen extends StatefulWidget {
   SettingsScreen({Key key, this.auth, this.logoutCallback}): super(key: key);
@@ -27,14 +24,16 @@ class _SettingsScreen extends State<SettingsScreen> {
   bool _darkSelected = false;
   String text;
 
+  
   Future<void> signOut() async{
     try {
       await widget.auth.signOut();
       widget.logoutCallback();
-      } 
+    } 
     catch (e) {
       print(e);
     }
+    //Navigator.popUntil(context, ModalRoute.withName("/"));
   }
 
   Future<void> _areYouSure(BuildContext context) {
@@ -84,6 +83,7 @@ class _SettingsScreen extends State<SettingsScreen> {
                 });
               },
           ),
+          
           Divider(),
           SwitchListTile(
               title: Text('Dark Mode', style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.5),),
@@ -97,6 +97,7 @@ class _SettingsScreen extends State<SettingsScreen> {
                 });     
             },
           ),
+         
           Divider(),
           ListTile(
             title: Text('Clear Schedule', style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.5),),
@@ -105,6 +106,7 @@ class _SettingsScreen extends State<SettingsScreen> {
               _areYouSure(context);
             },
           ),
+          
           Divider(),
           ListTile(
             title: Text('Report a Problem', style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.5),),
@@ -113,6 +115,7 @@ class _SettingsScreen extends State<SettingsScreen> {
               Navigator.push(context, MaterialPageRoute(builder: (context) => ReportProblemPage(auth: widget.auth,)));
             },
           ),
+          
           Divider(),
           ListTile(
             title: Text('Send Feedback', style: DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.5),),
@@ -121,6 +124,7 @@ class _SettingsScreen extends State<SettingsScreen> {
               Navigator.push(context, MaterialPageRoute(builder: (context) => SendFeedbackPage(auth: widget.auth)));
             },
           ),
+          
           Divider(),
           Container(
             padding: EdgeInsets.only(right: 50, left: 50, top: 50),
@@ -132,11 +136,7 @@ class _SettingsScreen extends State<SettingsScreen> {
             color: Colors.cyan,
             child: Text('Logout',
               style: TextStyle(fontSize: 23.0, color: Colors.deepOrange)),
-              onPressed: //() async{
-              //   await widget.auth.signOut();
-              //   widget.logoutCallback();
-              //   }
-              signOut,
+            onPressed: signOut,
             ),
           )
         ]            
@@ -144,8 +144,8 @@ class _SettingsScreen extends State<SettingsScreen> {
     );            
   }
 
-  @override
-  bool get wantKeepAlive => true;
+  // @override
+  // bool get wantKeepAlive => true;
 }
 
 

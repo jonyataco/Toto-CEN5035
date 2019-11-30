@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 class UserInfo extends StatelessWidget {
   final String userField;
   final String userValue;
-  final Color containerColor;
-  UserInfo(this.userField, this.userValue, this.containerColor);
+  //final Color containerColor;
+  UserInfo(this.userField, this.userValue, /*this.containerColor*/);
 
   Widget build(BuildContext context) {
     return Container (
@@ -12,7 +12,7 @@ class UserInfo extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border(
           bottom: BorderSide(
-            color: Colors.black,
+            color: Colors.black26,
             width: .5
           )
         )
@@ -27,7 +27,7 @@ class UserInfo extends StatelessWidget {
               child: Text(
                 userField,
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 23,
                   fontWeight: FontWeight.bold
                 )
               )
