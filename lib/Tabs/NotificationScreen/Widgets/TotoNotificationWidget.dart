@@ -24,7 +24,7 @@ class TotoNotification extends StatelessWidget {
       height: 70,
       // Definining Border of the container
       decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(width: 1.0, color: Colors.black)),
+        border: Border(bottom: BorderSide(width: 1.0, color: Colors.black26)),
       ),
       /* The child of the container will be a row. Inside of the row,
        * there are two expandeds. Inside of the right expanded there is an icon.
@@ -33,9 +33,9 @@ class TotoNotification extends StatelessWidget {
        * notification details.
        */
       child: Row(
-        children: <Widget>[
+        children: <Widget>[ 
           Expanded(
-            flex: 9,
+            flex: 9, 
             child: Container(
               padding: EdgeInsets.all(8),
               child: Column(
@@ -48,6 +48,7 @@ class TotoNotification extends StatelessWidget {
                       fontSize: 24,
                     )
                   ),
+                  
                   Text(
                     notificationDetails,
                     style: TextStyle(fontSize: 18, color: Colors.grey)
@@ -57,12 +58,9 @@ class TotoNotification extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 1,
+            flex: 2,
             child: Container(
-              child: Icon(
-                Icons.opacity,
-                size: 40,
-              )
+              child: notificationIcon,
             ),
           ),
         ],

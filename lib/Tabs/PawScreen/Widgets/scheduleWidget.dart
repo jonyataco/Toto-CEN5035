@@ -53,6 +53,10 @@ class Schedule extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.only(right: 30),
             child: RaisedButton(
+              elevation: 5.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)
+              ),
               onPressed: ()// => {print('Editing the schedule')},
               {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => DateTimePicker()),
@@ -61,7 +65,7 @@ class Schedule extends StatelessWidget {
               color: Colors.cyan,
               child: Text(
                 'Edit schedule',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(fontSize: 17.0, color: Colors.deepOrange),
               )
             )
           )
