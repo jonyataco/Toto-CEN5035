@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:toto_real/Tabs/PawScreen/Models/userid_model.dart';
 import '../Tabs/PawScreen/PawScreen.dart';
+import '../Tabs/PawScreen/Models/userid_model.dart';
 import '../Tabs/PawScreen/Models/levelModel.dart';
 import '../Tabs/SettingsScreen/SettingsScreen.dart';
 import '../Tabs/VideoChatScreen/VideochatScreen.dart';
@@ -47,6 +49,7 @@ final String userId;
 /// Implements the building and logic of switching between the different tabs
 /// of the application.
 class _StatefulTabControllerState extends State<StatefulTabController> {
+
   // On initial load of the application the app will index automatically to 2, the PawScreen
   int _currentIndex = 2;
 
@@ -99,6 +102,9 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
           builder: (context) => LevelModel()
         ),
         ChangeNotifierProvider(
+          builder: (context) => UserIDModel(widget.userId)
+        ),
+        ChangeNotifierProvider(
           builder: (conext) => AccountModel(widget.userId)
         ),
       ],
@@ -111,17 +117,16 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
             color: Colors.deepOrange,
             )
           ),
-
+          
   //Temporary log out,,, the logout button should be in the account or settings page. 
   //when that pages gets build, it will contain a logout
   //temporary log out
-          actions: <Widget>[
-              new FlatButton(
-          child: new Text('Logout',
-                style: new TextStyle(fontSize: 17.0, color: Colors.blueGrey)),
-                onPressed: signOut)
-            ],
-        
+          // actions: <Widget>[
+          //     new FlatButton(
+          // child: new Text('Logout',
+          //       style: new TextStyle(fontSize: 17.0, color: Colors.blueGrey)),
+          //       onPressed: signOut)
+          //   ],
         ),
         body: _widgetOptions.elementAt(_currentIndex),
         bottomNavigationBar: BottomNavigationBar(

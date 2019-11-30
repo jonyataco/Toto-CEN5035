@@ -268,7 +268,7 @@ class _SignupPageState extends State<SignupPage> {
             'Create Account',
             style: TextStyle(
               fontSize: 20.0, 
-              color: Colors.white
+              color: Colors.deepOrange
             )
           ),
           onPressed: validateAndSubmit,

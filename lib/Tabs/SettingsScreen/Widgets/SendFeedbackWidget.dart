@@ -16,7 +16,6 @@ class SendFeedbackPage extends StatefulWidget {
  Widget titleMessage() {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10.0, 15.0, 30.0, 0.0),
-      
       child: TextFormField(
         maxLines: 1,
         keyboardType: TextInputType.text,
@@ -44,6 +43,23 @@ class SendFeedbackPage extends StatefulWidget {
       );
   }
 
+  Future<void> _sendDialog(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+       Future.delayed(Duration(seconds: 3),(){
+          Navigator.of(context).pop();
+        });
+      return AlertDialog(
+        title: Text('Message Sent'),
+        content: const Text('Thank you for your feedback.'),
+         shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0)
+          ),
+      );
+    },
+  );}
+
   Widget send(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(30.0, 45.0, 30.0, 0.0),
@@ -59,19 +75,19 @@ class SendFeedbackPage extends StatefulWidget {
             'Send',
             style: TextStyle(
               fontSize: 20.0, 
-              color: Colors.white
+              color: Colors.deepOrange
             )
           ),
           onPressed: (){
             var widget;
              Navigator.pop(context, MaterialPageRoute(builder: (context) => SettingsScreen(auth: widget.auth,)));
+             _sendDialog(context);
           },
         ),
       ),
     );
   }
   
-
 class _SendFeedbackPage extends State<SendFeedbackPage> {
   @override
   Widget build(BuildContext context) {
@@ -102,5 +118,4 @@ class _SendFeedbackPage extends State<SendFeedbackPage> {
       )
       );
   }
-
 }

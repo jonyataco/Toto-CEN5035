@@ -3,6 +3,7 @@ import 'package:toto_real/Authentication%20Pages/Widgets/TotoAppBar.dart';
 import 'package:toto_real/Authentication Pages/Services/authentication.dart';
 import '../SettingsScreen.dart';
 
+
 class ReportProblemPage extends StatefulWidget {
   ReportProblemPage({this.auth, this.loginCallback});
 
@@ -12,6 +13,7 @@ class ReportProblemPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new _ReportProblemPage();
 }
+
 
  Widget titleMessage() {
     return Padding(
@@ -44,6 +46,23 @@ class ReportProblemPage extends StatefulWidget {
       );
   }
 
+  Future<void> _sendDialog(BuildContext context) {
+  return showDialog<void>(
+    context: context,
+    builder: (BuildContext context) {
+       Future.delayed(Duration(seconds: 3),(){
+          Navigator.of(context).pop();
+        });
+      return AlertDialog(
+        title: Text('Message Sent'),
+        content: const Text('Thank you for your feedback.'),
+         shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0)
+          ),
+      );
+    },
+  );}
+
   Widget send(BuildContext context) {
     return Padding(
       padding: EdgeInsets.fromLTRB(30.0, 45.0, 30.0, 0.0),
@@ -59,18 +78,19 @@ class ReportProblemPage extends StatefulWidget {
             'Send',
             style: TextStyle(
               fontSize: 20.0, 
-              color: Colors.white
+              color: Colors.deepOrange
             )
           ),
           onPressed: (){
             var widget;
              Navigator.pop(context, MaterialPageRoute(builder: (context) => SettingsScreen(auth: widget.auth,)));
+             _sendDialog(context);
           },
         ),
       ),
     );
-  }
-  
+ }
+
 
 class _ReportProblemPage extends State<ReportProblemPage> {
   @override

@@ -6,43 +6,7 @@ import './Authentication Pages/Views/root_page.dart';
 import 'Tabs/SettingsScreen/Widgets/ThemeChanger.dart';
 
 /// Runs the application
-void main() {
-  runApp(MyApp());
-}
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//         title: 'Toto',
-//         debugShowCheckedModeBanner: false,
-//         theme: ThemeData(
-//           primarySwatch: Colors.cyan,
-//         ),
-//         home: RootPage(auth: Auth()));
-//   }
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return new DynamicTheme(
-//       defaultBrightness: Brightness.light,
-//       data: (brightness) => new ThemeData(
-//         primarySwatch: Colors.cyan,
-//         brightness: brightness,
-//       ),
-//       themedWidgetBuilder: (context, theme) {
-//         return new MaterialApp(
-//           debugShowCheckedModeBanner: false,
-//           title: 'Toto',
-//           theme: theme,
-//           home: new RootPage(auth: Auth()),
-//         );
-//       }
-//     );
-//   }
-// }
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -75,7 +39,15 @@ class MaterialAppWithTheme extends StatelessWidget {
   }
 }
 
-
-
-
-
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//         title: 'Toto',
+//         debugShowCheckedModeBanner: false,
+//         theme: ThemeData(
+//           primarySwatch: Colors.cyan,
+//         ),
+//         home: RootPage(auth: Auth()));
+//   }
+// }
