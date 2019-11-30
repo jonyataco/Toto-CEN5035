@@ -20,7 +20,6 @@ void main() => runApp(MyApp());
 /// The root of the application. When the build function is called, it builds
 /// the StatefulTabController.
 class MyApp extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -56,7 +55,6 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
   // List of widgetOptions
   List<Widget> _widgetOptions = <Widget>[
     SettingsScreen(),
-    //Text('Index 1: Video Chat'),
     VideoScreen(),
     PawScreen(),
     NotificationScreen(),
