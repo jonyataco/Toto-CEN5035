@@ -5,6 +5,8 @@ import '../Models/levelModel.dart';
 import 'package:toto_real/Tabs/PawScreen/Widgets/totoLevels.dart';
 
 class WaterLevel extends StatelessWidget {
+  final String userID;
+  WaterLevel({this.userID});
   @override
   Widget build(BuildContext context) {
     return Consumer<LevelModel> (

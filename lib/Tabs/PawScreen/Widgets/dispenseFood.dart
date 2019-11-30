@@ -1,6 +1,7 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../Models/levelModel.dart';
+import 'package:toto_real/Tabs/PawScreen/Models/userid_model.dart';
 
 class DispenseFood extends StatelessWidget {
   final String title = "Dispense Food";
@@ -8,7 +9,12 @@ class DispenseFood extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final level = Provider.of<LevelModel>(context);
+    final userID = Provider.of<UserIDModel>(context);
+    DatabaseReference dbRef = FirebaseDatabase.instance.reference();
+    void dispense() {
+      dbRef.child('levels/' + userID.uID).update({'foodDispensing': true});
+    }
+
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height * .10,
@@ -44,7 +50,7 @@ class DispenseFood extends StatelessWidget {
                 icon: Icon(Icons.pets),
                 iconSize: 40,
                 color: Colors.deepOrange,
-                onPressed: () => {level.foodLevel = level.foodLevel - 10}
+                onPressed: dispense,
               ),
             ),
           ),

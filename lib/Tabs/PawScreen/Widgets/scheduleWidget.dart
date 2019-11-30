@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'schedulepage.dart';
-
 import 'package:firebase_database/firebase_database.dart';
 
 class Schedule extends StatelessWidget {
   final String _scheduleDetails;
   final String _scheduleButtonText;
   
-  final databaseReference = FirebaseDatabase.instance.reference()
+  final dbRef = FirebaseDatabase.instance.reference()
   .child('schedule');
   //arturo
   Schedule(this._scheduleDetails,this._scheduleButtonText);
@@ -18,7 +17,6 @@ class Schedule extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Row(
       children: <Widget>[
         Expanded(
@@ -55,6 +53,10 @@ class Schedule extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.only(right: 30),
             child: RaisedButton(
+              elevation: 5.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)
+              ),
               onPressed: ()// => {print('Editing the schedule')},
               {
                 Navigator.push(context, MaterialPageRoute(builder: (context) => DateTimePicker()),
@@ -63,7 +65,7 @@ class Schedule extends StatelessWidget {
               color: Colors.cyan,
               child: Text(
                 'Edit schedule',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(fontSize: 17.0, color: Colors.deepOrange),
               )
             )
           )
@@ -73,7 +75,7 @@ class Schedule extends StatelessWidget {
   }
 
   getData(){
-    databaseReference.once().then((DataSnapshot snapshot) {
+    dbRef.once().then((DataSnapshot snapshot) {
      print('Data : ${snapshot.value}');
      schedule = (snapshot.value).toString();
      //print('Data : ${snapshot.value}');
