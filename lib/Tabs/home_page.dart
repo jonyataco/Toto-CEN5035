@@ -44,6 +44,13 @@ final String userId;
   _StatefulTabControllerState createState() => _StatefulTabControllerState();
 }
 
+class Constants{
+  static const String SignOut = 'Log out';
+
+  static const List<String> choices = <String>[
+    SignOut
+  ];
+}
 /// Class that can be considered homebase for the application after logging in.
 /// Implements the building and logic of switching between the different tabs
 /// of the application.
@@ -115,15 +122,28 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
             color: Colors.deepOrange,
             )
           ),
-          
-  //Temporary log out,,, the logout button should be in the account or settings page. 
-  //when that pages gets build, it will contain a logout
-  //temporary log out
           actions: <Widget>[
-              new FlatButton(
-          child: new Text('Logout',
-                style: new TextStyle(fontSize: 17.0, color: Colors.blueGrey)),
-                onPressed: signOut)
+            PopupMenuButton(
+              shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0)
+              ),
+            onSelected: choiceAction,
+            itemBuilder: (BuildContext context){
+              return Constants.choices.map((String choice){
+                return PopupMenuItem<String>(
+                  value: choice,
+                  child: ListTile(
+                    title: Text('Logout', style: TextStyle(color: Colors.deepOrange, fontSize: 23.0, )),
+                    contentPadding: EdgeInsets.only(bottom: 10),
+                    leading: Icon(Icons.exit_to_app, color: Colors.deepOrange),
+                    onTap: () {
+                      signOut();
+                    }
+                  )
+                );
+              }).toList();
+            },
+          )
             ],
         ),
         body: _widgetOptions.elementAt(_currentIndex),
@@ -159,3 +179,9 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
     );
   }
 }
+void choiceAction(String choice){
+    if(choice == Constants.SignOut){
+      print('SignOut');
+    }
+  }
+

@@ -123,25 +123,25 @@ class _SettingsScreen extends State<SettingsScreen> {
               Navigator.push(context, MaterialPageRoute(builder: (context) => SendFeedbackPage(auth: widget.auth)));
             },
           ),
-          
-          Divider(),
-          Container(
-            padding: EdgeInsets.only(right: 50, left: 50, top: 50),
-            child: RaisedButton(
-              elevation: 5.0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(5.0)
-              ),
-              color: Colors.cyan,
-              child: Text('Logout',
-                style: TextStyle(fontSize: 23.0, color: Colors.deepOrange)),
-              onPressed: signOut,
-            ),
-          )
         ]
       )
   );}
 
+
+   //Divider(),
+          // Container(
+          //   padding: EdgeInsets.only(right: 50, left: 50, top: 50),
+          //   child: RaisedButton(
+          //     elevation: 5.0,
+          //     shape: RoundedRectangleBorder(
+          //       borderRadius: BorderRadius.circular(5.0)
+          //     ),
+          //     color: Colors.cyan,
+          //     child: Text('Logout',
+          //       style: TextStyle(fontSize: 23.0, color: Colors.deepOrange)),
+          //     onPressed: signOut,
+           // ),
+          //)
   // @override
   // bool get wantKeepAlive => true;
 }
