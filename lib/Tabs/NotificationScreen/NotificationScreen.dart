@@ -27,19 +27,19 @@ class _NotificationScreenState extends State<NotificationScreen> with AutomaticK
     for (int i = 0; i < 20; i++) {
       if(i==0) {
         notificationList.add(
-        TotoNotification('Check Food', 'Food container running low.', Icon(Icons.priority_high, size: 40.0)));
+        TotoNotification('Check Food', 'Food container running low.', Icon(Icons.priority_high, size: 35.0)));
       }
       if (i== 3){
         notificationList.add(
-        TotoNotification('Check Water', 'Water container is running low.', Icon(Icons.priority_high, size: 40.0)));
+        TotoNotification('Check Water', 'Water container is running low.', Icon(Icons.priority_high, size: 35.0)));
       }
       if (i%2 == 0) {
       notificationList.add(
-        TotoNotification('Your pet has been fed', 'Feeding was performed at 4 pm.', Icon(Icons.video_call, size: 40.0)));
+        TotoNotification('Your pet has been fed', 'Feeding was performed at 4 pm.', Icon(Icons.video_call, size: 35.0)));
       } 
        else{
           notificationList.add(
-        TotoNotification('You pet is nearby', 'Open video chat to see.', Icon(Icons.check, size: 40.0)));
+        TotoNotification('You pet is nearby', 'Open video chat to see.', Icon(Icons.check, size: 35.0)));
         }
     }
 

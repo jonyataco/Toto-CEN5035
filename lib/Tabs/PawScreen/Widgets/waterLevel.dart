@@ -33,7 +33,7 @@ class WaterLevel extends StatelessWidget {
                 child: Text(
                   'Water Level: ${(level.waterLevel/375 * 100).round()}%',
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

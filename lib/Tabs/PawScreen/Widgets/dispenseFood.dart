@@ -14,16 +14,15 @@ class DispenseFood extends StatelessWidget {
     void dispense() {
       dbRef.child('levels/' + userID.uID).update({'foodDispensing': true});
     }
-
     return Container(
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height * .10,
+      //width: double.infinity,
+      //height: MediaQuery.of(context).size.height * .10,
       child: Row(
         children: <Widget>[
           Expanded(
-            flex: 8,
+            flex: 7,
             child: Container(
-              padding: EdgeInsets.only(top: 18, left: 10),
+              padding: EdgeInsets.only(top: 15, left: 10),
               child: Column(
                 // The alignment for items in the column
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,12 +30,12 @@ class DispenseFood extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 20,
                     )
                   ),
                   Text(
                     details,
-                    style: TextStyle(fontSize: 15, color: Colors.grey)
+                    style: TextStyle(fontSize: 13, color: Colors.grey)
                   )
                 ],
               ),

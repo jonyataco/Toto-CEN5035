@@ -32,7 +32,7 @@ class Schedule extends StatelessWidget {
                 
                 style: TextStyle(
                   fontSize: 18,
-                  fontWeight: FontWeight.bold
+                  //fontWeight: FontWeight.bold
                 ),
                 
               ), 
@@ -43,8 +43,6 @@ class Schedule extends StatelessWidget {
                   },
                   child: Text(schedule2),
                   ) */
-
-
             )
           )
         ),

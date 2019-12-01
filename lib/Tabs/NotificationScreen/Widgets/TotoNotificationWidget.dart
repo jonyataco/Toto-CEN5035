@@ -20,8 +20,8 @@ class TotoNotification extends StatelessWidget {
   Widget build(BuildContext context) {
     // Building a container for the notification that defines height and width.
     return Container(
-      width: double.infinity,
-      height: 70,
+      //width: double.infinity,
+      //height: 70,
       // Definining Border of the container
       decoration: BoxDecoration(
         border: Border(bottom: BorderSide(width: 1.0, color: Colors.black26)),
@@ -37,21 +37,19 @@ class TotoNotification extends StatelessWidget {
           Expanded(
             flex: 9, 
             child: Container(
-              padding: EdgeInsets.all(8),
+              padding: EdgeInsets.all(10),
               child: Column(
                 // The alignment for items in the column
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
                     notificationTitle,
-                    style: TextStyle(
-                      fontSize: 24,
-                    )
+                    style: TextStyle(fontSize: 20)
                   ),
                   
                   Text(
                     notificationDetails,
-                    style: TextStyle(fontSize: 18, color: Colors.grey)
+                    style: TextStyle(fontSize: 13, color: Colors.grey)
                   )
                 ],
               ),

@@ -38,7 +38,8 @@ class Camera extends StatelessWidget {
           margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
           child: Icon(
             Icons.camera_alt,
-            size: 36,
+            size: 30,
+            color: Colors.cyan,
           ),
         ),
         onTap: getImage,
