@@ -23,11 +23,11 @@ class UserInfo extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Padding(
-              padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
+              padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
               child: Text(
                 userField,
                 style: TextStyle(
-                  fontSize: 23,
+                  fontSize: 15,
                   fontWeight: FontWeight.bold
                 )
               )
@@ -36,11 +36,11 @@ class UserInfo extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 0, 5, 0),
+              padding: EdgeInsets.fromLTRB(0, 0, 20, 0),
               child: Text(
                 userValue,
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 18,
                 )
               )
             )

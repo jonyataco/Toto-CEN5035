@@ -85,7 +85,7 @@ class FoodLevel extends StatelessWidget {
                     child: Text(
                       'Food Level: ${value}%',
                       style: TextStyle(
-                        fontSize: 22,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

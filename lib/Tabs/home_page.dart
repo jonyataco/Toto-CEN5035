@@ -134,7 +134,7 @@ class _StatefulTabControllerState extends State<StatefulTabController> {
                   value: choice,
                   child: ListTile(
                     title: Text('Logout', style: TextStyle(color: Colors.deepOrange, fontSize: 23.0, )),
-                    contentPadding: EdgeInsets.only(bottom: 10),
+                    contentPadding: EdgeInsets.only(top: 18.5),
                     leading: Icon(Icons.exit_to_app, color: Colors.deepOrange),
                     onTap: () {
                       signOut();

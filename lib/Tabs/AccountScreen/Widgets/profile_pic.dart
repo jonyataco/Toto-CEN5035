@@ -46,8 +46,8 @@ class ProfilePic extends StatelessWidget {
         child: InkWell(
           onTap: getImage,
           child: Container(
-            width: 200,
-            height: 200,
+            width: 180,
+            height: 180,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(

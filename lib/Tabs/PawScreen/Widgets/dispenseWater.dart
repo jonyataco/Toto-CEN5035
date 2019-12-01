@@ -10,14 +10,14 @@ class DispenseWater extends StatelessWidget {
   Widget build(BuildContext context) {
     final level = Provider.of<LevelModel>(context);
     return Container(
-      width: double.infinity,
-      height: MediaQuery.of(context).size.height * .10,
+      //width: double.infinity,
+      //height: MediaQuery.of(context).size.height * .10,
       child: Row(
         children: <Widget>[
           Expanded(
-            flex: 8,
+            flex: 7,
             child: Container(
-              padding: EdgeInsets.only(top: 10, left: 10),
+              padding: EdgeInsets.only(top: 15, left: 10, bottom: 10),
               child: Column(
                 // The alignment for items in the column
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -25,17 +25,17 @@ class DispenseWater extends StatelessWidget {
                   Text(
                     title,
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: 20,
                     )
                   ),
                   Text(
                     details,
-                    style: TextStyle(fontSize: 16, color: Colors.grey)
+                    style: TextStyle(fontSize: 13, color: Colors.grey)
                   )
                 ],
               ),
             ),
-          ),
+          ), Divider(),
           Expanded(
             flex: 2,
             child: Container(

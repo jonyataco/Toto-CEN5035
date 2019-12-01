@@ -30,29 +30,18 @@ class AccountScreen extends StatelessWidget {
             child: UserInfo('Pet Name', account.petName + ' 🐶', /*Colors.indigo*/)
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-            child: SizedBox(
-              height: 45,
-              width: 150,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Colors.cyan
-                ),
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5.0)
-                    ),
-                 onPressed: null,
-                  child: Text(
-                    'Reset Password',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.deepOrange
-                    )
-                  )
-                )
-              )
-            ),
+            padding: EdgeInsets.only(right: 50, left: 50, top: 25, bottom: 15),
+            child: RaisedButton(
+              disabledColor: Colors.cyan,
+              elevation: 5.0,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(5.0)
+              ),
+              color: Colors.cyan,
+              child: Text('Reset Password',
+                style: TextStyle(fontSize: 16.0, color: Colors.deepOrange)),
+              onPressed: null,
+           ),
           )
         ]
       ),
