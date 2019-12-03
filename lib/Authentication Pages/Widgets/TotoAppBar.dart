@@ -15,7 +15,7 @@ class TotoAppBar extends StatelessWidget implements PreferredSizeWidget{
         titleText,
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontSize: 32,
+          fontSize: 28,
           color: Colors.deepOrange
         ),
       ),
